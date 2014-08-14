@@ -1,0 +1,11 @@
+AccountingTests/obj/
+*.suo
+TravelAccounter/bin/
+AccountingTests/bin/
+TravelAccounter/obj/
+TravelAccounterWin/bin/
+TravelAccounterWin/obj/
+TravelAccounterWpf/bin/
+TravelAccounterWpf/obj/
+TravelAccounting/bin/
+TravelAccounting/obj/
