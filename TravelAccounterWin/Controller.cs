@@ -20,6 +20,8 @@ namespace TravelAccounterWin
             view.OnCreateNewTravel += view_OnCreateNewTravel;
             view.OnCreateNewAccount += view_OnCreateNewAccount;
             view.OnCreateNewTransaction += view_OnCreateNewTransaction;
+            view.OnCalculateClaims += view_OnCalculateClaims;
+            view.OnPayClaims += view_OnPayClaims;
         }
 
         private View view;
@@ -56,7 +58,8 @@ namespace TravelAccounterWin
                     paymentsEngine.Expense(t, e.Creditor, e.Amount);
                     break;
                 case TransactionType.CollectiveExpense:
-                    paymentsEngine.PayEquallyFor(t, e.Creditor, true, e.Amount, e.Debtors.ToArray());
+                    bool includeCreditor = e.Debtors.Contains(e.Creditor);
+                    paymentsEngine.PayEquallyFor(t, e.Creditor, includeCreditor, e.Amount, e.Debtors.Where(d => d != e.Creditor).ToArray());
                     break;
                 case TransactionType.InternalTransaction:
                     paymentsEngine.GiveMoneyTo(t, e.Creditor, e.Debtors.First(), e.Amount);
@@ -64,6 +67,22 @@ namespace TravelAccounterWin
             }
 
             view.RefreshTransactions(travel.TransactionLines);
+        }
+        void view_OnCalculateClaims(object sender, EventArgs e)
+        {
+            var claims = claimEngine.CalcClaims();
+            this.view.RefreshClaims(claims);
+        }
+
+        void view_OnPayClaims(object sender, PayClaimsEventArgs e)
+        {
+            foreach (var claim in e.Claims)
+                paymentsEngine.PayClaim(claim);
+            
+            view.RefreshTransactions(travel.TransactionLines);
+            
+            var claims = claimEngine.CalcClaims();
+            this.view.RefreshClaims(claims);
         }
     }
 }

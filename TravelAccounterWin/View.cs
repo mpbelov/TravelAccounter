@@ -19,6 +19,8 @@ namespace TravelAccounterWin
             this.MainForm.toolStripButtonNewAccount.Click += toolStripButtonNewAccount_Click;
             this.MainForm.toolStripButtonDeleteAccount.Click += toolStripButtonDeleteAccount_Click;
             this.MainForm.buttonAddTransaction.Click += buttonAddTransaction_Click;
+            this.MainForm.toolStripButtonCalculateClaims.Click += toolStripButtonCalculateClaims_Click;
+            this.MainForm.toolStripButtonPayClaims.Click += toolStripButtonPayClaims_Click;
 
             this.MainForm.panelMainPanel.Visible = false;
             this.MainForm.panelMainPanel.SendToBack();
@@ -32,13 +34,15 @@ namespace TravelAccounterWin
         public event EventHandler<NameDetailsEventArgs> OnCreateNewTravel;
         public event EventHandler<NameDetailsEventArgs> OnCreateNewAccount;
         public event EventHandler<NewTransactionEventArgs> OnCreateNewTransaction;
+        public event EventHandler OnCalculateClaims;
+        public event EventHandler<PayClaimsEventArgs> OnPayClaims;
 
         public void RefreshAccounts(ICollection<Account> accounts)
         {
-            this.MainForm.accountBindingSource.DataSource = accounts.ToArray();
+            this.MainForm.accountBindingSource.DataSource = accounts.OrderBy(a => a.Name).ToArray();
             this.MainForm.accountBindingSource.ResetBindings(false);
 
-            this.MainForm.accountBindingSourceWho.DataSource = accounts.ToArray();
+            this.MainForm.accountBindingSourceWho.DataSource = accounts.OrderBy(a => a.Name).ToArray();
             this.MainForm.accountBindingSourceWho.ResetBindings(false);
 
             this.MainForm.UpdateForWhomList();
@@ -47,6 +51,13 @@ namespace TravelAccounterWin
         {
             this.MainForm.transactionLineBindingSource.DataSource = transactions.ToArray();
             this.MainForm.transactionLineBindingSource.ResetBindings(false);
+        }
+        public void RefreshClaims(ICollection<Claim> claims)
+        {
+            this.MainForm.claimBindingSource.DataSource = (from c in claims
+                                                          orderby c.Creditor, c.Amount
+                                                          select c).ToArray();
+            this.MainForm.claimBindingSource.ResetBindings(false);
         }
 
         void buttonStartNewTravel_Click(object sender, EventArgs e)
@@ -119,7 +130,27 @@ namespace TravelAccounterWin
 
                 OnCreateNewTransaction.Invoke(this, eventArgs);
             }
+            this.MainForm.ClearTransactionEntryPanel();
         }
 
+        void toolStripButtonPayClaims_Click(object sender, EventArgs e)
+        {
+            if (OnPayClaims != null)
+            {
+                PayClaimsEventArgs eventArgs = new PayClaimsEventArgs();
+                foreach (DataGridViewRow row in this.MainForm.dataGridClaims.SelectedRows)
+                {
+                    Claim claim = (Claim)row.DataBoundItem;
+                    eventArgs.Claims.Add(claim);
+                }
+                OnPayClaims.Invoke(this, eventArgs);
+            }
+        }
+
+        void toolStripButtonCalculateClaims_Click(object sender, EventArgs e)
+        {
+            if (OnCalculateClaims != null)
+                OnCalculateClaims.Invoke(this, new EventArgs());
+        }
     }
 }

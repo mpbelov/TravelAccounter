@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TravelAccounting.Model
 {
-    public class Account
+    public class Account : IComparable<Account>
     {
         public Account(Travel travel)
         {
@@ -51,6 +51,11 @@ namespace TravelAccounting.Model
         {
             //return string.Format("{0}. Credit {1}; Debt {2}; Expense {3}", Name, Credit, Debt, Expense);
             return Name;
+        }
+
+        public int CompareTo(Account other)
+        {
+            return this.Name.CompareTo(other.Name);
         }
     }
 }

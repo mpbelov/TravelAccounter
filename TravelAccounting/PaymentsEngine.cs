@@ -74,7 +74,7 @@ namespace TravelAccounting
             });
         }
 
-        public void ApplyClaim(Claim claim)
+        public void PayClaim(Claim claim)
         {
             Transaction claimTransaction = new Transaction(travel){
                  Details = claim.ToString()

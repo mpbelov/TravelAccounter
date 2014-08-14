@@ -5,7 +5,7 @@ namespace TravelAccounting.Contracts
 {
     public interface IPaymentsEngine
     {
-        void ApplyClaim(Claim claim);
+        void PayClaim(Claim claim);
         void Expense(Transaction trans, Account payer, decimal amount);
         void GiveMoneyTo(Transaction trans, Account fromWho, Account toWhom, decimal amount);
         void PayBack(Transaction trans, Account creditor, Account whoReturns, decimal amount);

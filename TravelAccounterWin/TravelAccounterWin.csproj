@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="NameDetailsEventArgs.cs" />
     <Compile Include="NewTransactionEventArgs.cs" />
+    <Compile Include="PayClaimsEventArgs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View.cs" />
@@ -87,6 +88,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\TravelAccounting.Model.Account.datasource" />
+    <None Include="Properties\DataSources\TravelAccounting.Model.Claim.datasource" />
     <None Include="Properties\DataSources\TravelAccounting.Model.TransactionLine.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

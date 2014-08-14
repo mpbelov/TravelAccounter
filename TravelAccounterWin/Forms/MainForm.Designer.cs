@@ -35,57 +35,73 @@
             this.buttonStartNewTravel = new System.Windows.Forms.Button();
             this.panelMainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.buttonClaims = new System.Windows.Forms.Button();
             this.buttonTransaction = new System.Windows.Forms.Button();
             this.buttonAccounts = new System.Windows.Forms.Button();
             this.panelWorkArea = new System.Windows.Forms.Panel();
+            this.panelClaims = new System.Windows.Forms.Panel();
+            this.dataGridClaims = new System.Windows.Forms.DataGridView();
+            this.toolStripClaims = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonCalculateClaims = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPayClaims = new System.Windows.Forms.ToolStripButton();
             this.panelTransactions = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelNewTransaction = new System.Windows.Forms.Panel();
+            this.comboInternal = new System.Windows.Forms.ComboBox();
+            this.buttonCheckNone = new System.Windows.Forms.Button();
+            this.buttonCheckAll = new System.Windows.Forms.Button();
+            this.checkedListForWhom = new System.Windows.Forms.CheckedListBox();
+            this.buttonAddTransaction = new System.Windows.Forms.Button();
+            this.textAmount = new System.Windows.Forms.TextBox();
+            this.labelAmount = new System.Windows.Forms.Label();
             this.radioInternal = new System.Windows.Forms.RadioButton();
             this.labelForWhom = new System.Windows.Forms.Label();
             this.radioCollectiveExpense = new System.Windows.Forms.RadioButton();
             this.radioSingleExpense = new System.Windows.Forms.RadioButton();
             this.comboCreditor = new System.Windows.Forms.ComboBox();
-            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountBindingSourceWho = new System.Windows.Forms.BindingSource(this.components);
             this.labelCreditor = new System.Windows.Forms.Label();
             this.textTransactionDetails = new System.Windows.Forms.TextBox();
             this.labelTransactionDetails = new System.Windows.Forms.Label();
+            this.dataGridTransactions = new System.Windows.Forms.DataGridView();
+            this.creditorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelAccounts = new System.Windows.Forms.Panel();
             this.dataGridAccounts = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expenseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripAccounts = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonNewAccount = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeleteAccount = new System.Windows.Forms.ToolStripButton();
-            this.labelAmount = new System.Windows.Forms.Label();
-            this.textAmount = new System.Windows.Forms.TextBox();
-            this.buttonAddTransaction = new System.Windows.Forms.Button();
-            this.accountBindingSourceWho = new System.Windows.Forms.BindingSource(this.components);
-            this.checkedListForWhom = new System.Windows.Forms.CheckedListBox();
-            this.buttonCheckAll = new System.Windows.Forms.Button();
-            this.buttonCheckNone = new System.Windows.Forms.Button();
-            this.comboInternal = new System.Windows.Forms.ComboBox();
-            this.dataGridTransactions = new System.Windows.Forms.DataGridView();
-            this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.creditorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProviderNewTransaction = new System.Windows.Forms.ErrorProvider(this.components);
+            this.claimBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTableStart.SuspendLayout();
             this.panelMainPanel.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelWorkArea.SuspendLayout();
+            this.panelClaims.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).BeginInit();
+            this.toolStripClaims.SuspendLayout();
             this.panelTransactions.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
-            this.panelAccounts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).BeginInit();
-            this.toolStripAccounts.SuspendLayout();
+            this.panelNewTransaction.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceWho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).BeginInit();
+            this.panelAccounts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
+            this.toolStripAccounts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTableStart
@@ -144,6 +160,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.White;
+            this.panelTop.Controls.Add(this.buttonClaims);
             this.panelTop.Controls.Add(this.buttonTransaction);
             this.panelTop.Controls.Add(this.buttonAccounts);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -153,12 +170,22 @@
             this.panelTop.Size = new System.Drawing.Size(789, 68);
             this.panelTop.TabIndex = 0;
             // 
+            // buttonClaims
+            // 
+            this.buttonClaims.Location = new System.Drawing.Point(169, 3);
+            this.buttonClaims.Name = "buttonClaims";
+            this.buttonClaims.Size = new System.Drawing.Size(77, 62);
+            this.buttonClaims.TabIndex = 2;
+            this.buttonClaims.Text = "Claims";
+            this.buttonClaims.UseVisualStyleBackColor = true;
+            this.buttonClaims.Click += new System.EventHandler(this.buttonClaims_Click);
+            // 
             // buttonTransaction
             // 
             this.buttonTransaction.Location = new System.Drawing.Point(86, 3);
             this.buttonTransaction.Name = "buttonTransaction";
             this.buttonTransaction.Size = new System.Drawing.Size(77, 62);
-            this.buttonTransaction.TabIndex = 0;
+            this.buttonTransaction.TabIndex = 1;
             this.buttonTransaction.Text = "Transaction";
             this.buttonTransaction.UseVisualStyleBackColor = true;
             this.buttonTransaction.Click += new System.EventHandler(this.buttonTransaction_Click);
@@ -175,6 +202,7 @@
             // 
             // panelWorkArea
             // 
+            this.panelWorkArea.Controls.Add(this.panelClaims);
             this.panelWorkArea.Controls.Add(this.panelTransactions);
             this.panelWorkArea.Controls.Add(this.panelAccounts);
             this.panelWorkArea.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,11 +212,70 @@
             this.panelWorkArea.Size = new System.Drawing.Size(789, 408);
             this.panelWorkArea.TabIndex = 1;
             // 
+            // panelClaims
+            // 
+            this.panelClaims.Controls.Add(this.dataGridClaims);
+            this.panelClaims.Controls.Add(this.toolStripClaims);
+            this.panelClaims.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelClaims.Location = new System.Drawing.Point(0, 0);
+            this.panelClaims.Name = "panelClaims";
+            this.panelClaims.Size = new System.Drawing.Size(789, 408);
+            this.panelClaims.TabIndex = 2;
+            // 
+            // dataGridClaims
+            // 
+            this.dataGridClaims.AllowUserToAddRows = false;
+            this.dataGridClaims.AllowUserToDeleteRows = false;
+            this.dataGridClaims.AllowUserToResizeRows = false;
+            this.dataGridClaims.AutoGenerateColumns = false;
+            this.dataGridClaims.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridClaims.ColumnHeadersHeight = 30;
+            this.dataGridClaims.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.creditorDataGridViewTextBoxColumn1,
+            this.debtorDataGridViewTextBoxColumn1,
+            this.amountDataGridViewTextBoxColumn1});
+            this.dataGridClaims.DataSource = this.claimBindingSource;
+            this.dataGridClaims.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridClaims.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridClaims.Location = new System.Drawing.Point(0, 25);
+            this.dataGridClaims.Name = "dataGridClaims";
+            this.dataGridClaims.RowHeadersVisible = false;
+            this.dataGridClaims.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridClaims.Size = new System.Drawing.Size(789, 383);
+            this.dataGridClaims.TabIndex = 1;
+            // 
+            // toolStripClaims
+            // 
+            this.toolStripClaims.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonCalculateClaims,
+            this.toolStripButtonPayClaims});
+            this.toolStripClaims.Location = new System.Drawing.Point(0, 0);
+            this.toolStripClaims.Name = "toolStripClaims";
+            this.toolStripClaims.Size = new System.Drawing.Size(789, 25);
+            this.toolStripClaims.TabIndex = 0;
+            this.toolStripClaims.Text = "toolStrip1";
+            // 
+            // toolStripButtonCalculateClaims
+            // 
+            this.toolStripButtonCalculateClaims.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCalculateClaims.Image")));
+            this.toolStripButtonCalculateClaims.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCalculateClaims.Name = "toolStripButtonCalculateClaims";
+            this.toolStripButtonCalculateClaims.Size = new System.Drawing.Size(76, 22);
+            this.toolStripButtonCalculateClaims.Text = "Calculate";
+            // 
+            // toolStripButtonPayClaims
+            // 
+            this.toolStripButtonPayClaims.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPayClaims.Image")));
+            this.toolStripButtonPayClaims.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPayClaims.Name = "toolStripButtonPayClaims";
+            this.toolStripButtonPayClaims.Size = new System.Drawing.Size(83, 22);
+            this.toolStripButtonPayClaims.Text = "Pay claims";
+            // 
             // panelTransactions
             // 
             this.panelTransactions.ColumnCount = 1;
             this.panelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelTransactions.Controls.Add(this.panel1, 0, 0);
+            this.panelTransactions.Controls.Add(this.panelNewTransaction, 0, 0);
             this.panelTransactions.Controls.Add(this.dataGridTransactions, 0, 1);
             this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTransactions.Location = new System.Drawing.Point(0, 0);
@@ -199,38 +286,102 @@
             this.panelTransactions.Size = new System.Drawing.Size(789, 408);
             this.panelTransactions.TabIndex = 1;
             // 
-            // panel1
+            // panelNewTransaction
             // 
-            this.panel1.Controls.Add(this.comboInternal);
-            this.panel1.Controls.Add(this.buttonCheckNone);
-            this.panel1.Controls.Add(this.buttonCheckAll);
-            this.panel1.Controls.Add(this.checkedListForWhom);
-            this.panel1.Controls.Add(this.buttonAddTransaction);
-            this.panel1.Controls.Add(this.textAmount);
-            this.panel1.Controls.Add(this.labelAmount);
-            this.panel1.Controls.Add(this.radioInternal);
-            this.panel1.Controls.Add(this.labelForWhom);
-            this.panel1.Controls.Add(this.radioCollectiveExpense);
-            this.panel1.Controls.Add(this.radioSingleExpense);
-            this.panel1.Controls.Add(this.comboCreditor);
-            this.panel1.Controls.Add(this.labelCreditor);
-            this.panel1.Controls.Add(this.textTransactionDetails);
-            this.panel1.Controls.Add(this.labelTransactionDetails);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 128);
-            this.panel1.TabIndex = 0;
+            this.panelNewTransaction.Controls.Add(this.comboInternal);
+            this.panelNewTransaction.Controls.Add(this.buttonCheckNone);
+            this.panelNewTransaction.Controls.Add(this.buttonCheckAll);
+            this.panelNewTransaction.Controls.Add(this.checkedListForWhom);
+            this.panelNewTransaction.Controls.Add(this.buttonAddTransaction);
+            this.panelNewTransaction.Controls.Add(this.textAmount);
+            this.panelNewTransaction.Controls.Add(this.labelAmount);
+            this.panelNewTransaction.Controls.Add(this.radioInternal);
+            this.panelNewTransaction.Controls.Add(this.labelForWhom);
+            this.panelNewTransaction.Controls.Add(this.radioCollectiveExpense);
+            this.panelNewTransaction.Controls.Add(this.radioSingleExpense);
+            this.panelNewTransaction.Controls.Add(this.comboCreditor);
+            this.panelNewTransaction.Controls.Add(this.labelCreditor);
+            this.panelNewTransaction.Controls.Add(this.textTransactionDetails);
+            this.panelNewTransaction.Controls.Add(this.labelTransactionDetails);
+            this.panelNewTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelNewTransaction.Location = new System.Drawing.Point(1, 1);
+            this.panelNewTransaction.Margin = new System.Windows.Forms.Padding(1);
+            this.panelNewTransaction.Name = "panelNewTransaction";
+            this.panelNewTransaction.Size = new System.Drawing.Size(787, 128);
+            this.panelNewTransaction.TabIndex = 0;
+            // 
+            // comboInternal
+            // 
+            this.comboInternal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboInternal.FormattingEnabled = true;
+            this.comboInternal.Location = new System.Drawing.Point(250, 102);
+            this.comboInternal.Name = "comboInternal";
+            this.comboInternal.Size = new System.Drawing.Size(140, 21);
+            this.comboInternal.TabIndex = 14;
+            // 
+            // buttonCheckNone
+            // 
+            this.buttonCheckNone.Location = new System.Drawing.Point(595, 83);
+            this.buttonCheckNone.Name = "buttonCheckNone";
+            this.buttonCheckNone.Size = new System.Drawing.Size(75, 39);
+            this.buttonCheckNone.TabIndex = 12;
+            this.buttonCheckNone.Text = "Check none";
+            this.buttonCheckNone.UseVisualStyleBackColor = true;
+            this.buttonCheckNone.Click += new System.EventHandler(this.buttonCheckNone_Click);
+            // 
+            // buttonCheckAll
+            // 
+            this.buttonCheckAll.Location = new System.Drawing.Point(595, 28);
+            this.buttonCheckAll.Name = "buttonCheckAll";
+            this.buttonCheckAll.Size = new System.Drawing.Size(75, 39);
+            this.buttonCheckAll.TabIndex = 11;
+            this.buttonCheckAll.Text = "Check all";
+            this.buttonCheckAll.UseVisualStyleBackColor = true;
+            this.buttonCheckAll.Click += new System.EventHandler(this.buttonCheckAll_Click);
+            // 
+            // checkedListForWhom
+            // 
+            this.checkedListForWhom.CheckOnClick = true;
+            this.checkedListForWhom.FormattingEnabled = true;
+            this.checkedListForWhom.Location = new System.Drawing.Point(420, 28);
+            this.checkedListForWhom.Name = "checkedListForWhom";
+            this.checkedListForWhom.Size = new System.Drawing.Size(169, 94);
+            this.checkedListForWhom.TabIndex = 10;
+            // 
+            // buttonAddTransaction
+            // 
+            this.buttonAddTransaction.Location = new System.Drawing.Point(696, 10);
+            this.buttonAddTransaction.Name = "buttonAddTransaction";
+            this.buttonAddTransaction.Size = new System.Drawing.Size(75, 112);
+            this.buttonAddTransaction.TabIndex = 13;
+            this.buttonAddTransaction.Text = "Add transaction";
+            this.buttonAddTransaction.UseVisualStyleBackColor = true;
+            // 
+            // textAmount
+            // 
+            this.textAmount.Location = new System.Drawing.Point(250, 34);
+            this.textAmount.Name = "textAmount";
+            this.textAmount.Size = new System.Drawing.Size(140, 20);
+            this.textAmount.TabIndex = 5;
+            this.textAmount.TextChanged += new System.EventHandler(this.textAmount_TextChanged);
+            // 
+            // labelAmount
+            // 
+            this.labelAmount.AutoSize = true;
+            this.labelAmount.Location = new System.Drawing.Point(181, 37);
+            this.labelAmount.Name = "labelAmount";
+            this.labelAmount.Size = new System.Drawing.Size(43, 13);
+            this.labelAmount.TabIndex = 4;
+            this.labelAmount.Text = "Amount";
             // 
             // radioInternal
             // 
             this.radioInternal.AutoSize = true;
             this.radioInternal.Location = new System.Drawing.Point(184, 106);
             this.radioInternal.Name = "radioInternal";
-            this.radioInternal.Size = new System.Drawing.Size(60, 17);
+            this.radioInternal.Size = new System.Drawing.Size(64, 17);
             this.radioInternal.TabIndex = 8;
-            this.radioInternal.Text = "Internal";
+            this.radioInternal.Text = "Transfer";
             this.radioInternal.UseVisualStyleBackColor = true;
             this.radioInternal.CheckedChanged += new System.EventHandler(this.radioInternal_CheckedChanged);
             // 
@@ -276,10 +427,9 @@
             this.comboCreditor.TabIndex = 3;
             this.comboCreditor.SelectedIndexChanged += new System.EventHandler(this.comboCreditor_SelectedIndexChanged);
             // 
-            // accountBindingSource
+            // accountBindingSourceWho
             // 
-            this.accountBindingSource.AllowNew = false;
-            this.accountBindingSource.DataSource = typeof(TravelAccounting.Model.Account);
+            this.accountBindingSourceWho.DataSource = typeof(TravelAccounting.Model.Account);
             // 
             // labelCreditor
             // 
@@ -307,157 +457,6 @@
             this.labelTransactionDetails.TabIndex = 0;
             this.labelTransactionDetails.Text = "Details";
             // 
-            // panelAccounts
-            // 
-            this.panelAccounts.Controls.Add(this.dataGridAccounts);
-            this.panelAccounts.Controls.Add(this.toolStripAccounts);
-            this.panelAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAccounts.Location = new System.Drawing.Point(0, 0);
-            this.panelAccounts.Margin = new System.Windows.Forms.Padding(1);
-            this.panelAccounts.Name = "panelAccounts";
-            this.panelAccounts.Size = new System.Drawing.Size(789, 408);
-            this.panelAccounts.TabIndex = 0;
-            // 
-            // dataGridAccounts
-            // 
-            this.dataGridAccounts.AutoGenerateColumns = false;
-            this.dataGridAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.creditDataGridViewTextBoxColumn,
-            this.debtDataGridViewTextBoxColumn,
-            this.expenseDataGridViewTextBoxColumn});
-            this.dataGridAccounts.DataSource = this.accountBindingSource;
-            this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridAccounts.Location = new System.Drawing.Point(0, 25);
-            this.dataGridAccounts.Name = "dataGridAccounts";
-            this.dataGridAccounts.RowHeadersVisible = false;
-            this.dataGridAccounts.Size = new System.Drawing.Size(789, 383);
-            this.dataGridAccounts.TabIndex = 1;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // creditDataGridViewTextBoxColumn
-            // 
-            this.creditDataGridViewTextBoxColumn.DataPropertyName = "Credit";
-            this.creditDataGridViewTextBoxColumn.HeaderText = "Credit";
-            this.creditDataGridViewTextBoxColumn.Name = "creditDataGridViewTextBoxColumn";
-            this.creditDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // debtDataGridViewTextBoxColumn
-            // 
-            this.debtDataGridViewTextBoxColumn.DataPropertyName = "Debt";
-            this.debtDataGridViewTextBoxColumn.HeaderText = "Debt";
-            this.debtDataGridViewTextBoxColumn.Name = "debtDataGridViewTextBoxColumn";
-            this.debtDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // expenseDataGridViewTextBoxColumn
-            // 
-            this.expenseDataGridViewTextBoxColumn.DataPropertyName = "Expense";
-            this.expenseDataGridViewTextBoxColumn.HeaderText = "Expense";
-            this.expenseDataGridViewTextBoxColumn.Name = "expenseDataGridViewTextBoxColumn";
-            this.expenseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // toolStripAccounts
-            // 
-            this.toolStripAccounts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonNewAccount,
-            this.toolStripButtonDeleteAccount});
-            this.toolStripAccounts.Location = new System.Drawing.Point(0, 0);
-            this.toolStripAccounts.Name = "toolStripAccounts";
-            this.toolStripAccounts.Size = new System.Drawing.Size(789, 25);
-            this.toolStripAccounts.TabIndex = 0;
-            this.toolStripAccounts.Text = "Accounts";
-            // 
-            // toolStripButtonNewAccount
-            // 
-            this.toolStripButtonNewAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonNewAccount.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNewAccount.Image")));
-            this.toolStripButtonNewAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonNewAccount.Name = "toolStripButtonNewAccount";
-            this.toolStripButtonNewAccount.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButtonNewAccount.Text = "New account";
-            // 
-            // toolStripButtonDeleteAccount
-            // 
-            this.toolStripButtonDeleteAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonDeleteAccount.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDeleteAccount.Image")));
-            this.toolStripButtonDeleteAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDeleteAccount.Name = "toolStripButtonDeleteAccount";
-            this.toolStripButtonDeleteAccount.Size = new System.Drawing.Size(90, 22);
-            this.toolStripButtonDeleteAccount.Text = "Delete account";
-            // 
-            // labelAmount
-            // 
-            this.labelAmount.AutoSize = true;
-            this.labelAmount.Location = new System.Drawing.Point(181, 37);
-            this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(43, 13);
-            this.labelAmount.TabIndex = 4;
-            this.labelAmount.Text = "Amount";
-            // 
-            // textAmount
-            // 
-            this.textAmount.Location = new System.Drawing.Point(250, 34);
-            this.textAmount.Name = "textAmount";
-            this.textAmount.Size = new System.Drawing.Size(140, 20);
-            this.textAmount.TabIndex = 5;
-            // 
-            // buttonAddTransaction
-            // 
-            this.buttonAddTransaction.Location = new System.Drawing.Point(696, 10);
-            this.buttonAddTransaction.Name = "buttonAddTransaction";
-            this.buttonAddTransaction.Size = new System.Drawing.Size(75, 112);
-            this.buttonAddTransaction.TabIndex = 13;
-            this.buttonAddTransaction.Text = "Add transaction";
-            this.buttonAddTransaction.UseVisualStyleBackColor = true;
-            // 
-            // accountBindingSourceWho
-            // 
-            this.accountBindingSourceWho.DataSource = typeof(TravelAccounting.Model.Account);
-            // 
-            // checkedListForWhom
-            // 
-            this.checkedListForWhom.CheckOnClick = true;
-            this.checkedListForWhom.FormattingEnabled = true;
-            this.checkedListForWhom.Location = new System.Drawing.Point(420, 28);
-            this.checkedListForWhom.Name = "checkedListForWhom";
-            this.checkedListForWhom.Size = new System.Drawing.Size(169, 94);
-            this.checkedListForWhom.TabIndex = 10;
-            // 
-            // buttonCheckAll
-            // 
-            this.buttonCheckAll.Location = new System.Drawing.Point(595, 28);
-            this.buttonCheckAll.Name = "buttonCheckAll";
-            this.buttonCheckAll.Size = new System.Drawing.Size(75, 39);
-            this.buttonCheckAll.TabIndex = 11;
-            this.buttonCheckAll.Text = "Check all";
-            this.buttonCheckAll.UseVisualStyleBackColor = true;
-            this.buttonCheckAll.Click += new System.EventHandler(this.buttonCheckAll_Click);
-            // 
-            // buttonCheckNone
-            // 
-            this.buttonCheckNone.Location = new System.Drawing.Point(595, 83);
-            this.buttonCheckNone.Name = "buttonCheckNone";
-            this.buttonCheckNone.Size = new System.Drawing.Size(75, 39);
-            this.buttonCheckNone.TabIndex = 12;
-            this.buttonCheckNone.Text = "Check none";
-            this.buttonCheckNone.UseVisualStyleBackColor = true;
-            this.buttonCheckNone.Click += new System.EventHandler(this.buttonCheckNone_Click);
-            // 
-            // comboInternal
-            // 
-            this.comboInternal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboInternal.FormattingEnabled = true;
-            this.comboInternal.Location = new System.Drawing.Point(250, 102);
-            this.comboInternal.Name = "comboInternal";
-            this.comboInternal.Size = new System.Drawing.Size(140, 21);
-            this.comboInternal.TabIndex = 14;
-            // 
             // dataGridTransactions
             // 
             this.dataGridTransactions.AllowUserToAddRows = false;
@@ -481,10 +480,6 @@
             this.dataGridTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTransactions.Size = new System.Drawing.Size(783, 272);
             this.dataGridTransactions.TabIndex = 1;
-            // 
-            // transactionLineBindingSource
-            // 
-            this.transactionLineBindingSource.DataSource = typeof(TravelAccounting.Model.TransactionLine);
             // 
             // creditorDataGridViewTextBoxColumn
             // 
@@ -522,6 +517,133 @@
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // transactionLineBindingSource
+            // 
+            this.transactionLineBindingSource.DataSource = typeof(TravelAccounting.Model.TransactionLine);
+            // 
+            // panelAccounts
+            // 
+            this.panelAccounts.Controls.Add(this.dataGridAccounts);
+            this.panelAccounts.Controls.Add(this.toolStripAccounts);
+            this.panelAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAccounts.Location = new System.Drawing.Point(0, 0);
+            this.panelAccounts.Margin = new System.Windows.Forms.Padding(1);
+            this.panelAccounts.Name = "panelAccounts";
+            this.panelAccounts.Size = new System.Drawing.Size(789, 408);
+            this.panelAccounts.TabIndex = 0;
+            // 
+            // dataGridAccounts
+            // 
+            this.dataGridAccounts.AutoGenerateColumns = false;
+            this.dataGridAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.creditDataGridViewTextBoxColumn,
+            this.debtDataGridViewTextBoxColumn,
+            this.expenseDataGridViewTextBoxColumn});
+            this.dataGridAccounts.DataSource = this.accountBindingSource;
+            this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridAccounts.Location = new System.Drawing.Point(0, 25);
+            this.dataGridAccounts.Name = "dataGridAccounts";
+            this.dataGridAccounts.RowHeadersVisible = false;
+            this.dataGridAccounts.Size = new System.Drawing.Size(789, 383);
+            this.dataGridAccounts.TabIndex = 1;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.Frozen = true;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // creditDataGridViewTextBoxColumn
+            // 
+            this.creditDataGridViewTextBoxColumn.DataPropertyName = "Credit";
+            this.creditDataGridViewTextBoxColumn.Frozen = true;
+            this.creditDataGridViewTextBoxColumn.HeaderText = "Credit";
+            this.creditDataGridViewTextBoxColumn.Name = "creditDataGridViewTextBoxColumn";
+            this.creditDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // debtDataGridViewTextBoxColumn
+            // 
+            this.debtDataGridViewTextBoxColumn.DataPropertyName = "Debt";
+            this.debtDataGridViewTextBoxColumn.Frozen = true;
+            this.debtDataGridViewTextBoxColumn.HeaderText = "Debt";
+            this.debtDataGridViewTextBoxColumn.Name = "debtDataGridViewTextBoxColumn";
+            this.debtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // expenseDataGridViewTextBoxColumn
+            // 
+            this.expenseDataGridViewTextBoxColumn.DataPropertyName = "Expense";
+            this.expenseDataGridViewTextBoxColumn.Frozen = true;
+            this.expenseDataGridViewTextBoxColumn.HeaderText = "Expense";
+            this.expenseDataGridViewTextBoxColumn.Name = "expenseDataGridViewTextBoxColumn";
+            this.expenseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountBindingSource
+            // 
+            this.accountBindingSource.AllowNew = false;
+            this.accountBindingSource.DataSource = typeof(TravelAccounting.Model.Account);
+            // 
+            // toolStripAccounts
+            // 
+            this.toolStripAccounts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonNewAccount,
+            this.toolStripButtonDeleteAccount});
+            this.toolStripAccounts.Location = new System.Drawing.Point(0, 0);
+            this.toolStripAccounts.Name = "toolStripAccounts";
+            this.toolStripAccounts.Size = new System.Drawing.Size(789, 25);
+            this.toolStripAccounts.TabIndex = 0;
+            this.toolStripAccounts.Text = "Accounts";
+            // 
+            // toolStripButtonNewAccount
+            // 
+            this.toolStripButtonNewAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonNewAccount.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNewAccount.Image")));
+            this.toolStripButtonNewAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNewAccount.Name = "toolStripButtonNewAccount";
+            this.toolStripButtonNewAccount.Size = new System.Drawing.Size(81, 22);
+            this.toolStripButtonNewAccount.Text = "New account";
+            // 
+            // toolStripButtonDeleteAccount
+            // 
+            this.toolStripButtonDeleteAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonDeleteAccount.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDeleteAccount.Image")));
+            this.toolStripButtonDeleteAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDeleteAccount.Name = "toolStripButtonDeleteAccount";
+            this.toolStripButtonDeleteAccount.Size = new System.Drawing.Size(90, 22);
+            this.toolStripButtonDeleteAccount.Text = "Delete account";
+            // 
+            // errorProviderNewTransaction
+            // 
+            this.errorProviderNewTransaction.ContainerControl = this;
+            // 
+            // claimBindingSource
+            // 
+            this.claimBindingSource.AllowNew = false;
+            this.claimBindingSource.DataSource = typeof(TravelAccounting.Model.Claim);
+            // 
+            // creditorDataGridViewTextBoxColumn1
+            // 
+            this.creditorDataGridViewTextBoxColumn1.DataPropertyName = "Creditor";
+            this.creditorDataGridViewTextBoxColumn1.HeaderText = "Creditor";
+            this.creditorDataGridViewTextBoxColumn1.Name = "creditorDataGridViewTextBoxColumn1";
+            this.creditorDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // debtorDataGridViewTextBoxColumn1
+            // 
+            this.debtorDataGridViewTextBoxColumn1.DataPropertyName = "Debtor";
+            this.debtorDataGridViewTextBoxColumn1.HeaderText = "Debtor";
+            this.debtorDataGridViewTextBoxColumn1.Name = "debtorDataGridViewTextBoxColumn1";
+            this.debtorDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn1
+            // 
+            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
+            this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -537,18 +659,25 @@
             this.panelMainPanel.ResumeLayout(false);
             this.panelTop.ResumeLayout(false);
             this.panelWorkArea.ResumeLayout(false);
+            this.panelClaims.ResumeLayout(false);
+            this.panelClaims.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).EndInit();
+            this.toolStripClaims.ResumeLayout(false);
+            this.toolStripClaims.PerformLayout();
             this.panelTransactions.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
-            this.panelAccounts.ResumeLayout(false);
-            this.panelAccounts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).EndInit();
-            this.toolStripAccounts.ResumeLayout(false);
-            this.toolStripAccounts.PerformLayout();
+            this.panelNewTransaction.ResumeLayout(false);
+            this.panelNewTransaction.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceWho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).EndInit();
+            this.panelAccounts.ResumeLayout(false);
+            this.panelAccounts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
+            this.toolStripAccounts.ResumeLayout(false);
+            this.toolStripAccounts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,16 +694,12 @@
         private System.Windows.Forms.Panel panelWorkArea;
         private System.Windows.Forms.ToolStrip toolStripAccounts;
         internal System.Windows.Forms.Panel panelAccounts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creditDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn debtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expenseDataGridViewTextBoxColumn;
         internal System.Windows.Forms.BindingSource accountBindingSource;
         internal System.Windows.Forms.ToolStripButton toolStripButtonNewAccount;
         internal System.Windows.Forms.ToolStripButton toolStripButtonDeleteAccount;
         internal System.Windows.Forms.DataGridView dataGridAccounts;
         private System.Windows.Forms.TableLayoutPanel panelTransactions;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelNewTransaction;
         private System.Windows.Forms.Label labelTransactionDetails;
         private System.Windows.Forms.Label labelCreditor;
         private System.Windows.Forms.Label labelForWhom;
@@ -598,6 +723,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         internal System.Windows.Forms.BindingSource transactionLineBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProviderNewTransaction;
+        private System.Windows.Forms.Button buttonClaims;
+        private System.Windows.Forms.Panel panelClaims;
+        private System.Windows.Forms.ToolStrip toolStripClaims;
+        internal System.Windows.Forms.ToolStripButton toolStripButtonCalculateClaims;
+        internal System.Windows.Forms.ToolStripButton toolStripButtonPayClaims;
+        internal System.Windows.Forms.DataGridView dataGridClaims;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creditDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expenseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creditorDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debtorDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
+        internal System.Windows.Forms.BindingSource claimBindingSource;
 
     }
 }
