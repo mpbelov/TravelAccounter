@@ -16,6 +16,9 @@ namespace TravelAccounterWin
             this.MainForm = new MainForm();
 
             this.MainForm.buttonStartNewTravel.Click += buttonStartNewTravel_Click;
+            this.MainForm.buttonOpen.Click += buttonOpen_Click;
+            this.MainForm.buttonOpenTravel.Click += buttonOpen_Click;
+            this.MainForm.buttonSaveTravel.Click += buttonSaveTravel_Click;
             this.MainForm.toolStripButtonNewAccount.Click += toolStripButtonNewAccount_Click;
             this.MainForm.toolStripButtonDeleteAccount.Click += toolStripButtonDeleteAccount_Click;
             this.MainForm.buttonAddTransaction.Click += buttonAddTransaction_Click;
@@ -36,6 +39,8 @@ namespace TravelAccounterWin
         public event EventHandler<NewTransactionEventArgs> OnCreateNewTransaction;
         public event EventHandler OnCalculateClaims;
         public event EventHandler<PayClaimsEventArgs> OnPayClaims;
+        public event EventHandler<FileEventArgs> OnOpenTravel;
+        public event EventHandler<FileEventArgs> OnSaveTravel;
 
         public void RefreshAccounts(ICollection<Account> accounts)
         {
@@ -81,6 +86,52 @@ namespace TravelAccounterWin
                 this.MainForm.panelMainPanel.BringToFront();
 
                 this.MainForm.TurnOnAccountsView();
+            }
+        }
+
+        void buttonOpen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog frm = new OpenFileDialog();
+            frm.Filter = "Travel budget files | *.trv";
+            frm.DefaultExt = "trv";
+            frm.Multiselect = false;
+            var res = frm.ShowDialog(this.MainForm);
+            if (res == System.Windows.Forms.DialogResult.OK)
+            {
+                if (OnOpenTravel != null)
+                {
+                    OnOpenTravel.Invoke(this, new FileEventArgs()
+                        {
+                            FileName = frm.FileName
+                        }
+                    );
+                }
+
+                this.MainForm.panelTableStart.Visible = false;
+                this.MainForm.panelMainPanel.Visible = true;
+                this.MainForm.panelMainPanel.BringToFront();
+
+                this.MainForm.TurnOnAccountsView();
+            }
+        }
+
+        void buttonSaveTravel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog frm = new SaveFileDialog();
+            frm.Filter = "Travel budget files | *.trv";
+            frm.DefaultExt = "trv";
+
+            var res = frm.ShowDialog(this.MainForm);
+            if (res == System.Windows.Forms.DialogResult.OK)
+            {
+                if (OnSaveTravel != null)
+                {
+                    OnSaveTravel.Invoke(this, new FileEventArgs()
+                        {
+                            FileName = frm.FileName
+                        }
+                    );
+                }
             }
         }
 

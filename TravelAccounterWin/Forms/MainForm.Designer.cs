@@ -41,6 +41,10 @@
             this.panelWorkArea = new System.Windows.Forms.Panel();
             this.panelClaims = new System.Windows.Forms.Panel();
             this.dataGridClaims = new System.Windows.Forms.DataGridView();
+            this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claimBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripClaims = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCalculateClaims = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPayClaims = new System.Windows.Forms.ToolStripButton();
@@ -80,16 +84,15 @@
             this.toolStripButtonNewAccount = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeleteAccount = new System.Windows.Forms.ToolStripButton();
             this.errorProviderNewTransaction = new System.Windows.Forms.ErrorProvider(this.components);
-            this.claimBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonOpenTravel = new System.Windows.Forms.Button();
+            this.buttonSaveTravel = new System.Windows.Forms.Button();
             this.panelTableStart.SuspendLayout();
             this.panelMainPanel.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelWorkArea.SuspendLayout();
             this.panelClaims.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).BeginInit();
             this.toolStripClaims.SuspendLayout();
             this.panelTransactions.SuspendLayout();
             this.panelNewTransaction.SuspendLayout();
@@ -101,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.toolStripAccounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTableStart
@@ -123,7 +125,6 @@
             // buttonOpen
             // 
             this.buttonOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonOpen.Enabled = false;
             this.buttonOpen.Location = new System.Drawing.Point(100, 81);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(75, 23);
@@ -160,6 +161,8 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.White;
+            this.panelTop.Controls.Add(this.buttonOpenTravel);
+            this.panelTop.Controls.Add(this.buttonSaveTravel);
             this.panelTop.Controls.Add(this.buttonClaims);
             this.panelTop.Controls.Add(this.buttonTransaction);
             this.panelTop.Controls.Add(this.buttonAccounts);
@@ -172,6 +175,7 @@
             // 
             // buttonClaims
             // 
+            this.buttonClaims.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonClaims.Location = new System.Drawing.Point(169, 3);
             this.buttonClaims.Name = "buttonClaims";
             this.buttonClaims.Size = new System.Drawing.Size(77, 62);
@@ -182,6 +186,7 @@
             // 
             // buttonTransaction
             // 
+            this.buttonTransaction.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonTransaction.Location = new System.Drawing.Point(86, 3);
             this.buttonTransaction.Name = "buttonTransaction";
             this.buttonTransaction.Size = new System.Drawing.Size(77, 62);
@@ -192,6 +197,7 @@
             // 
             // buttonAccounts
             // 
+            this.buttonAccounts.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonAccounts.Location = new System.Drawing.Point(3, 3);
             this.buttonAccounts.Name = "buttonAccounts";
             this.buttonAccounts.Size = new System.Drawing.Size(77, 62);
@@ -243,6 +249,32 @@
             this.dataGridClaims.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridClaims.Size = new System.Drawing.Size(789, 383);
             this.dataGridClaims.TabIndex = 1;
+            // 
+            // creditorDataGridViewTextBoxColumn1
+            // 
+            this.creditorDataGridViewTextBoxColumn1.DataPropertyName = "Creditor";
+            this.creditorDataGridViewTextBoxColumn1.HeaderText = "Creditor";
+            this.creditorDataGridViewTextBoxColumn1.Name = "creditorDataGridViewTextBoxColumn1";
+            this.creditorDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // debtorDataGridViewTextBoxColumn1
+            // 
+            this.debtorDataGridViewTextBoxColumn1.DataPropertyName = "Debtor";
+            this.debtorDataGridViewTextBoxColumn1.HeaderText = "Debtor";
+            this.debtorDataGridViewTextBoxColumn1.Name = "debtorDataGridViewTextBoxColumn1";
+            this.debtorDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // amountDataGridViewTextBoxColumn1
+            // 
+            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
+            this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // claimBindingSource
+            // 
+            this.claimBindingSource.AllowNew = false;
+            this.claimBindingSource.DataSource = typeof(TravelAccounting.Model.Claim);
             // 
             // toolStripClaims
             // 
@@ -618,31 +650,25 @@
             // 
             this.errorProviderNewTransaction.ContainerControl = this;
             // 
-            // claimBindingSource
+            // buttonOpenTravel
             // 
-            this.claimBindingSource.AllowNew = false;
-            this.claimBindingSource.DataSource = typeof(TravelAccounting.Model.Claim);
+            this.buttonOpenTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonOpenTravel.Location = new System.Drawing.Point(618, 3);
+            this.buttonOpenTravel.Name = "buttonOpenTravel";
+            this.buttonOpenTravel.Size = new System.Drawing.Size(77, 62);
+            this.buttonOpenTravel.TabIndex = 2;
+            this.buttonOpenTravel.Text = "Open travel";
+            this.buttonOpenTravel.UseVisualStyleBackColor = true;
             // 
-            // creditorDataGridViewTextBoxColumn1
+            // buttonSaveTravel
             // 
-            this.creditorDataGridViewTextBoxColumn1.DataPropertyName = "Creditor";
-            this.creditorDataGridViewTextBoxColumn1.HeaderText = "Creditor";
-            this.creditorDataGridViewTextBoxColumn1.Name = "creditorDataGridViewTextBoxColumn1";
-            this.creditorDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // debtorDataGridViewTextBoxColumn1
-            // 
-            this.debtorDataGridViewTextBoxColumn1.DataPropertyName = "Debtor";
-            this.debtorDataGridViewTextBoxColumn1.HeaderText = "Debtor";
-            this.debtorDataGridViewTextBoxColumn1.Name = "debtorDataGridViewTextBoxColumn1";
-            this.debtorDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // amountDataGridViewTextBoxColumn1
-            // 
-            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
-            this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.buttonSaveTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonSaveTravel.Location = new System.Drawing.Point(701, 3);
+            this.buttonSaveTravel.Name = "buttonSaveTravel";
+            this.buttonSaveTravel.Size = new System.Drawing.Size(77, 62);
+            this.buttonSaveTravel.TabIndex = 2;
+            this.buttonSaveTravel.Text = "Save travel";
+            this.buttonSaveTravel.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -662,6 +688,7 @@
             this.panelClaims.ResumeLayout(false);
             this.panelClaims.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).EndInit();
             this.toolStripClaims.ResumeLayout(false);
             this.toolStripClaims.PerformLayout();
             this.panelTransactions.ResumeLayout(false);
@@ -677,14 +704,12 @@
             this.toolStripAccounts.ResumeLayout(false);
             this.toolStripAccounts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button buttonOpen;
         internal System.Windows.Forms.Button buttonStartNewTravel;
         internal System.Windows.Forms.TableLayoutPanel panelTableStart;
         internal System.Windows.Forms.TableLayoutPanel panelMainPanel;
@@ -738,6 +763,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn debtorDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
         internal System.Windows.Forms.BindingSource claimBindingSource;
+        internal System.Windows.Forms.Button buttonOpen;
+        internal System.Windows.Forms.Button buttonOpenTravel;
+        internal System.Windows.Forms.Button buttonSaveTravel;
 
     }
 }

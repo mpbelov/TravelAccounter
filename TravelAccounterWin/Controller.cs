@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,14 @@ namespace TravelAccounterWin
             MainForm = view.MainForm;
 
             view.OnCreateNewTravel += view_OnCreateNewTravel;
+            view.OnOpenTravel += view_OnOpenTravel;
+            view.OnSaveTravel += view_OnSaveTravel;
             view.OnCreateNewAccount += view_OnCreateNewAccount;
             view.OnCreateNewTransaction += view_OnCreateNewTransaction;
             view.OnCalculateClaims += view_OnCalculateClaims;
             view.OnPayClaims += view_OnPayClaims;
+
+            externalStorage = new FileStorage.FileStorage();
         }
 
         private View view;
@@ -30,6 +35,7 @@ namespace TravelAccounterWin
 
         private IPaymentsEngine paymentsEngine;
         private IClaimEngine claimEngine;
+        private IExternalStorage externalStorage;
 
         void view_OnCreateNewTravel(object sender, NameDetailsEventArgs e)
         {
@@ -41,6 +47,25 @@ namespace TravelAccounterWin
 
             paymentsEngine = new PaymentsEngine(travel);
             claimEngine = new ClaimEngine(travel);
+        }
+
+        void view_OnOpenTravel(object sender, FileEventArgs e)
+        {
+            travel = externalStorage.ImportTravel(e.FileName);
+
+            paymentsEngine = new PaymentsEngine(travel);
+            claimEngine = new ClaimEngine(travel);
+
+            view.RefreshAccounts(travel.Accounts);
+            view.RefreshTransactions(travel.TransactionLines);
+        }
+
+        void view_OnSaveTravel(object sender, FileEventArgs e)
+        {
+            if (File.Exists(e.FileName))
+                File.Delete(e.FileName);
+
+            externalStorage.ExportTravel(travel, e.FileName);
         }
 
         void view_OnCreateNewAccount(object sender, NameDetailsEventArgs e)

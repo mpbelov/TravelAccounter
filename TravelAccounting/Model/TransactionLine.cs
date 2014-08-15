@@ -20,7 +20,7 @@ namespace TravelAccounting.Model
         public Transaction Transaction { get; protected set; }
         public decimal Amount { get; set; }
 
-        public DateTime Date { get; protected set; }
+        public DateTime Date { get; set; }
 
         public override string ToString()
         {

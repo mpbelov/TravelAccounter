@@ -9,3 +9,6 @@ TravelAccounterWpf/bin/
 TravelAccounterWpf/obj/
 TravelAccounting/bin/
 TravelAccounting/obj/
+obj/Debug/
+*/obj/
+*/bin/

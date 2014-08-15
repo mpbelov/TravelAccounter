@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccounterWpf", "Trave
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccounterWin", "TravelAccounterWin\TravelAccounterWin.csproj", "{0C5B4185-F581-4617-AB80-738E1A39A77F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteStorage", "SqliteStorage\SqliteStorage.csproj", "{5447B332-D269-4D0B-9A90-8B64C2600897}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStorage", "FileStorage\FileStorage.csproj", "{F7DC7888-EDCC-4AC8-A98C-E28FBC66E802}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{0C5B4185-F581-4617-AB80-738E1A39A77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C5B4185-F581-4617-AB80-738E1A39A77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C5B4185-F581-4617-AB80-738E1A39A77F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5447B332-D269-4D0B-9A90-8B64C2600897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5447B332-D269-4D0B-9A90-8B64C2600897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5447B332-D269-4D0B-9A90-8B64C2600897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5447B332-D269-4D0B-9A90-8B64C2600897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7DC7888-EDCC-4AC8-A98C-E28FBC66E802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7DC7888-EDCC-4AC8-A98C-E28FBC66E802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7DC7888-EDCC-4AC8-A98C-E28FBC66E802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7DC7888-EDCC-4AC8-A98C-E28FBC66E802}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

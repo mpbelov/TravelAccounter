@@ -17,7 +17,7 @@ namespace TravelAccounting.Model
         public Travel Travel { get; protected set; }
         public string Details { get; set; }
 
-        public DateTime Date { get; protected set; }
+        public DateTime Date { get; set; }
 
         public override string ToString()
         {

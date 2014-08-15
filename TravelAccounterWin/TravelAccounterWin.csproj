@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
+    <Compile Include="FileEventArgs.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +105,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileStorage\FileStorage.csproj">
+      <Project>{f7dc7888-edcc-4ac8-a98c-e28fbc66e802}</Project>
+      <Name>FileStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqliteStorage\SqliteStorage.csproj">
+      <Project>{5447b332-d269-4d0b-9a90-8b64c2600897}</Project>
+      <Name>SqliteStorage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TravelAccounting\TravelAccounting.csproj">
       <Project>{d1bfcf75-3b2a-4227-ba91-8ede36b505f0}</Project>
       <Name>TravelAccounting</Name>

@@ -19,9 +19,9 @@ namespace TravelAccounting.Model
         public string Name { get; set; }
         public string Details { get; set; }
 
-        public IList<Account> Accounts { get; set; }
-        public IList<TransactionLine> TransactionLines { get; set; }
-        public IList<Transaction> Transactions { get; set; }
+        public IList<Account> Accounts { get; protected set; }
+        public IList<TransactionLine> TransactionLines { get; protected set; }
+        public IList<Transaction> Transactions { get; protected set; }
 
         public Account CreateAccount(string name)
         {
