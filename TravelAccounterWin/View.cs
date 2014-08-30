@@ -16,7 +16,7 @@ namespace TravelAccounterWin {
             this.MainForm.buttonOpen.Click += buttonOpen_Click;
             this.MainForm.buttonOpenTravel.Click += buttonOpen_Click;
             this.MainForm.buttonSaveTravel.Click += buttonSaveTravel_Click;
-            this.MainForm.buttonAddTransaction.Click += buttonAddTransaction_Click;
+            this.MainForm.transactionsControl.buttonAddTransaction.Click += buttonAddTransaction_Click;
             this.MainForm.toolStripButtonCalculateClaims.Click += toolStripButtonCalculateClaims_Click;
             this.MainForm.toolStripButtonPayClaims.Click += toolStripButtonPayClaims_Click;
 
@@ -49,13 +49,10 @@ namespace TravelAccounterWin {
         }
 
         public void RefreshAccounts(ICollection<Account> accounts) {
-            this.MainForm.accountBindingSource.DataSource = accounts.OrderBy(a => a.Name).ToArray();
-            this.MainForm.accountBindingSource.ResetBindings(false);
+            this.MainForm.transactionsControl.accountBindingSourceWho.DataSource = accounts.OrderBy(a => a.Name).ToArray();
+            this.MainForm.transactionsControl.accountBindingSourceWho.ResetBindings(false);
 
-            this.MainForm.accountBindingSourceWho.DataSource = accounts.OrderBy(a => a.Name).ToArray();
-            this.MainForm.accountBindingSourceWho.ResetBindings(false);
-
-            this.MainForm.UpdateForWhomList();
+            this.MainForm.transactionsControl.UpdateForWhomList();
         }
         public void RefreshTransactions(ICollection<TransactionLine> transactions) {
             this.MainForm.transactionLineBindingSource.DataSource = transactions.ToArray();
@@ -150,25 +147,25 @@ namespace TravelAccounterWin {
         void buttonAddTransaction_Click(object sender, EventArgs e) {
             if (OnCreateNewTransaction != null) {
                 var eventArgs = new NewTransactionEventArgs() {
-                    Details = this.MainForm.textTransactionDetails.Text,
-                    Amount = decimal.Parse(this.MainForm.textAmount.Text),
-                    Creditor = (Account)this.MainForm.comboCreditor.SelectedItem
+                    Details = this.MainForm.transactionsControl.textTransactionDetails.Text,
+                    Amount = decimal.Parse(this.MainForm.transactionsControl.textAmount.Text),
+                    Creditor = (Account)this.MainForm.transactionsControl.comboCreditor.SelectedItem
                 };
 
-                if (this.MainForm.radioSingleExpense.Checked)
+                if (this.MainForm.transactionsControl.radioSingleExpense.Checked)
                     eventArgs.Type = TransactionType.SingleExpense;
-                else if (this.MainForm.radioInternal.Checked) {
+                else if (this.MainForm.transactionsControl.radioInternal.Checked) {
                     eventArgs.Type = TransactionType.InternalTransaction;
-                    eventArgs.Debtors = new Account[] { (Account)this.MainForm.comboInternal.SelectedItem };
+                    eventArgs.Debtors = new Account[] { (Account)this.MainForm.transactionsControl.comboInternal.SelectedItem };
                 }
-                else if (this.MainForm.radioCollectiveExpense.Checked) {
+                else if (this.MainForm.transactionsControl.radioCollectiveExpense.Checked) {
                     eventArgs.Type = TransactionType.CollectiveExpense;
-                    eventArgs.Debtors = this.MainForm.checkedListForWhom.CheckedItems.Cast<Account>().ToArray();
+                    eventArgs.Debtors = this.MainForm.transactionsControl.checkedListForWhom.CheckedItems.Cast<Account>().ToArray();
                 }
 
                 OnCreateNewTransaction.Invoke(this, eventArgs);
             }
-            this.MainForm.ClearTransactionEntryPanel();
+            this.MainForm.transactionsControl.ClearTransactionEntryPanel();
         }
 
         void toolStripButtonCalculateClaims_Click(object sender, EventArgs e) {

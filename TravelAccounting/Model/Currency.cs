@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace TravelAccounting.Model {
     public class Currency {
-        public Currency() { }
-        public Currency(string name) {
+        public Currency() {
+            this.ExchangeRate = 1M;
+        }
+        public Currency(string name)
+            : this() {
             this.Name = name;
         }
         public Currency(string name, string shortName)
