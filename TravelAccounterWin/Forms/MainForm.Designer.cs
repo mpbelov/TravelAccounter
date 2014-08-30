@@ -35,6 +35,8 @@
             this.buttonStartNewTravel = new System.Windows.Forms.Button();
             this.panelMainPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.buttonOpenTravel = new System.Windows.Forms.Button();
+            this.buttonSaveTravel = new System.Windows.Forms.Button();
             this.buttonClaims = new System.Windows.Forms.Button();
             this.buttonTransaction = new System.Windows.Forms.Button();
             this.buttonAccounts = new System.Windows.Forms.Button();
@@ -84,8 +86,6 @@
             this.toolStripButtonNewAccount = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeleteAccount = new System.Windows.Forms.ToolStripButton();
             this.errorProviderNewTransaction = new System.Windows.Forms.ErrorProvider(this.components);
-            this.buttonOpenTravel = new System.Windows.Forms.Button();
-            this.buttonSaveTravel = new System.Windows.Forms.Button();
             this.panelTableStart.SuspendLayout();
             this.panelMainPanel.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -172,6 +172,26 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(789, 68);
             this.panelTop.TabIndex = 0;
+            // 
+            // buttonOpenTravel
+            // 
+            this.buttonOpenTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonOpenTravel.Location = new System.Drawing.Point(618, 3);
+            this.buttonOpenTravel.Name = "buttonOpenTravel";
+            this.buttonOpenTravel.Size = new System.Drawing.Size(77, 62);
+            this.buttonOpenTravel.TabIndex = 2;
+            this.buttonOpenTravel.Text = "Open travel";
+            this.buttonOpenTravel.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveTravel
+            // 
+            this.buttonSaveTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonSaveTravel.Location = new System.Drawing.Point(701, 3);
+            this.buttonSaveTravel.Name = "buttonSaveTravel";
+            this.buttonSaveTravel.Size = new System.Drawing.Size(77, 62);
+            this.buttonSaveTravel.TabIndex = 2;
+            this.buttonSaveTravel.Text = "Save travel";
+            this.buttonSaveTravel.UseVisualStyleBackColor = true;
             // 
             // buttonClaims
             // 
@@ -650,26 +670,6 @@
             // 
             this.errorProviderNewTransaction.ContainerControl = this;
             // 
-            // buttonOpenTravel
-            // 
-            this.buttonOpenTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonOpenTravel.Location = new System.Drawing.Point(618, 3);
-            this.buttonOpenTravel.Name = "buttonOpenTravel";
-            this.buttonOpenTravel.Size = new System.Drawing.Size(77, 62);
-            this.buttonOpenTravel.TabIndex = 2;
-            this.buttonOpenTravel.Text = "Open travel";
-            this.buttonOpenTravel.UseVisualStyleBackColor = true;
-            // 
-            // buttonSaveTravel
-            // 
-            this.buttonSaveTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonSaveTravel.Location = new System.Drawing.Point(701, 3);
-            this.buttonSaveTravel.Name = "buttonSaveTravel";
-            this.buttonSaveTravel.Size = new System.Drawing.Size(77, 62);
-            this.buttonSaveTravel.TabIndex = 2;
-            this.buttonSaveTravel.Text = "Save travel";
-            this.buttonSaveTravel.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -677,7 +677,7 @@
             this.ClientSize = new System.Drawing.Size(791, 480);
             this.Controls.Add(this.panelMainPanel);
             this.Controls.Add(this.panelTableStart);
-            this.MaximumSize = new System.Drawing.Size(807, 519);
+            this.MinimumSize = new System.Drawing.Size(807, 519);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Travel accounter";

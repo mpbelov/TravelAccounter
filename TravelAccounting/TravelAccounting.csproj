@@ -42,13 +42,15 @@
     <Compile Include="ClaimEngine.cs" />
     <Compile Include="Contracts\IClaimEngine.cs" />
     <Compile Include="Contracts\IExternalStorage.cs" />
-    <Compile Include="Contracts\IPaymentsEngine.cs" />
     <Compile Include="Contracts\IStorage.cs" />
+    <Compile Include="Contracts\IPaymentsEngine.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Claim.cs" />
+    <Compile Include="Model\Currency.cs" />
     <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\Travel.cs" />
     <Compile Include="Model\TransactionLine.cs" />
+    <Compile Include="Contracts\ISerializer.cs" />
     <Compile Include="Model\Xml\Serializer.cs" />
     <Compile Include="PaymentsEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using TravelAccounting.Contracts;
 
 namespace TravelAccounting.Model.Xml
 {
-    public static class Serializer
+    public class Serializer : ISerializer
     {
-        public static XDocument Serialize(Travel travel)
+        public XDocument Serialize(Travel travel)
         {
             var accountSet = createAccountSet(travel);
             var transactionSet = createTransactionSet(travel);
@@ -35,7 +36,7 @@ namespace TravelAccounting.Model.Xml
                     new XElement("Creditor", XmlConvert.ToString(accountSet[t.Creditor])),
                     new XElement("Debtor", XmlConvert.ToString(t.Debtor == null ? Guid.Empty : accountSet[t.Debtor])),
                     new XElement("Transaction", XmlConvert.ToString(transactionSet[t.Transaction])),
-                    new XElement("Amount", XmlConvert.ToString(t.Amount)),
+                    new XElement("Amount", XmlConvert.ToString(t.BaseAmount)),
                     new XElement("Date", XmlConvert.ToString(t.Date, XmlDateTimeSerializationMode.Utc))
                 )
             ).ToArray();
@@ -52,7 +53,7 @@ namespace TravelAccounting.Model.Xml
             return doc;
         }
 
-        public static Travel Deserialize(XDocument xDoc)
+        public Travel Deserialize(XDocument xDoc)
         {
             var travel = new Travel()
             {
@@ -82,15 +83,15 @@ namespace TravelAccounting.Model.Xml
                     debtor = accountSet[debtorId];
 
 
-                travel.TransactionLines.Add(
-                    new TransactionLine(trans)
-                    {
-                        Amount = XmlConvert.ToDecimal(x.Element("Amount").Value),
-                        Creditor = creditor,
-                        Debtor = debtor,
-                        Date = XmlConvert.ToDateTime(x.Element("Date").Value, XmlDateTimeSerializationMode.Utc)
-                    }
-                );
+                //travel.TransactionLines.Add(
+                //    new TransactionLine(trans)
+                //    {
+                //        BaseAmount = XmlConvert.ToDecimal(x.Element("Amount").Value),
+                //        Creditor = creditor,
+                //        Debtor = debtor,
+                //        Date = XmlConvert.ToDateTime(x.Element("Date").Value, XmlDateTimeSerializationMode.Utc)
+                //    }
+                //);
             }
 
             return travel;

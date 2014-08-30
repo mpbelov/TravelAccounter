@@ -35,22 +35,22 @@ namespace TravelAccounting
                 {
                     if (credits[c] >= debts[d])
                     {
-                        Claim claim = new Claim();
+                        Claim claim = new Claim(travel.BaseCurrency);
                         claim.Creditor = c;
                         claim.Debtor = d;
 
-                        claim.Amount = debts[d];
+                        claim.ActualAmount = debts[d];
                         credits[c] = credits[c] - debts[d];
                         debts[d] = 0;
                         claims.Add(claim);
                     }
                     else
                     {
-                        Claim claim = new Claim();
+                        Claim claim = new Claim(travel.BaseCurrency);
                         claim.Creditor = c;
                         claim.Debtor = d;
 
-                        claim.Amount = credits[c];
+                        claim.ActualAmount = credits[c];
                         credits[c] = 0;
                         debts[d] = debts[d] - credits[c];
                         claims.Add(claim);

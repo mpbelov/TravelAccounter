@@ -7,12 +7,9 @@ using System.Windows.Forms;
 using TravelAccounterWin.Forms;
 using TravelAccounting.Model;
 
-namespace TravelAccounterWin
-{
-    internal class View
-    {
-        public View()
-        {
+namespace TravelAccounterWin {
+    internal class View {
+        public View() {
             this.MainForm = new MainForm();
 
             this.MainForm.buttonStartNewTravel.Click += buttonStartNewTravel_Click;
@@ -42,8 +39,7 @@ namespace TravelAccounterWin
         public event EventHandler<FileEventArgs> OnOpenTravel;
         public event EventHandler<FileEventArgs> OnSaveTravel;
 
-        public void RefreshAccounts(ICollection<Account> accounts)
-        {
+        public void RefreshAccounts(ICollection<Account> accounts) {
             this.MainForm.accountBindingSource.DataSource = accounts.OrderBy(a => a.Name).ToArray();
             this.MainForm.accountBindingSource.ResetBindings(false);
 
@@ -52,32 +48,26 @@ namespace TravelAccounterWin
 
             this.MainForm.UpdateForWhomList();
         }
-        public void RefreshTransactions(ICollection<TransactionLine> transactions)
-        {
+        public void RefreshTransactions(ICollection<TransactionLine> transactions) {
             this.MainForm.transactionLineBindingSource.DataSource = transactions.ToArray();
             this.MainForm.transactionLineBindingSource.ResetBindings(false);
         }
-        public void RefreshClaims(ICollection<Claim> claims)
-        {
+        public void RefreshClaims(ICollection<Claim> claims) {
             this.MainForm.claimBindingSource.DataSource = (from c in claims
-                                                          orderby c.Creditor, c.Amount
-                                                          select c).ToArray();
+                                                           orderby c.Creditor, c.ActualAmount
+                                                           select c).ToArray();
             this.MainForm.claimBindingSource.ResetBindings(false);
         }
 
-        void buttonStartNewTravel_Click(object sender, EventArgs e)
-        {
+        void buttonStartNewTravel_Click(object sender, EventArgs e) {
             var form = new NewTravelForm();
             var res = form.ShowDialog(MainForm);
-            if (res == System.Windows.Forms.DialogResult.OK)
-            {
-                if (OnCreateNewTravel != null)
-                {
-                    OnCreateNewTravel.Invoke(this, new NameDetailsEventArgs()
-                        {
-                            Name = form.textName.Text,
-                            Details = form.textDetails.Text
-                        }
+            if (res == System.Windows.Forms.DialogResult.OK) {
+                if (OnCreateNewTravel != null) {
+                    OnCreateNewTravel.Invoke(this, new NameDetailsEventArgs() {
+                        Name = form.textName.Text,
+                        Details = form.textDetails.Text
+                    }
                     );
                 }
 
@@ -88,22 +78,17 @@ namespace TravelAccounterWin
                 this.MainForm.TurnOnAccountsView();
             }
         }
-
-        void buttonOpen_Click(object sender, EventArgs e)
-        {
+        void buttonOpen_Click(object sender, EventArgs e) {
             OpenFileDialog frm = new OpenFileDialog();
             frm.Filter = "Travel budget files | *.trv";
             frm.DefaultExt = "trv";
             frm.Multiselect = false;
             var res = frm.ShowDialog(this.MainForm);
-            if (res == System.Windows.Forms.DialogResult.OK)
-            {
-                if (OnOpenTravel != null)
-                {
-                    OnOpenTravel.Invoke(this, new FileEventArgs()
-                        {
-                            FileName = frm.FileName
-                        }
+            if (res == System.Windows.Forms.DialogResult.OK) {
+                if (OnOpenTravel != null) {
+                    OnOpenTravel.Invoke(this, new FileEventArgs() {
+                        FileName = frm.FileName
+                    }
                     );
                 }
 
@@ -114,53 +99,39 @@ namespace TravelAccounterWin
                 this.MainForm.TurnOnAccountsView();
             }
         }
-
-        void buttonSaveTravel_Click(object sender, EventArgs e)
-        {
+        void buttonSaveTravel_Click(object sender, EventArgs e) {
             SaveFileDialog frm = new SaveFileDialog();
             frm.Filter = "Travel budget files | *.trv";
             frm.DefaultExt = "trv";
 
             var res = frm.ShowDialog(this.MainForm);
-            if (res == System.Windows.Forms.DialogResult.OK)
-            {
-                if (OnSaveTravel != null)
-                {
-                    OnSaveTravel.Invoke(this, new FileEventArgs()
-                        {
-                            FileName = frm.FileName
-                        }
+            if (res == System.Windows.Forms.DialogResult.OK) {
+                if (OnSaveTravel != null) {
+                    OnSaveTravel.Invoke(this, new FileEventArgs() {
+                        FileName = frm.FileName
+                    }
                     );
                 }
             }
         }
 
-        void toolStripButtonNewAccount_Click(object sender, EventArgs e)
-        {
+        void toolStripButtonNewAccount_Click(object sender, EventArgs e) {
             var form = new NewAccountForm();
             var res = form.ShowDialog(MainForm);
-            if (res == System.Windows.Forms.DialogResult.OK)
-            {
-                if (OnCreateNewAccount != null)
-                {
-                    OnCreateNewAccount.Invoke(this, new NameDetailsEventArgs()
-                    {
+            if (res == System.Windows.Forms.DialogResult.OK) {
+                if (OnCreateNewAccount != null) {
+                    OnCreateNewAccount.Invoke(this, new NameDetailsEventArgs() {
                         Name = form.textName.Text
                     });
                 }
             }
         }
-
-        void toolStripButtonDeleteAccount_Click(object sender, EventArgs e)
-        {
+        void toolStripButtonDeleteAccount_Click(object sender, EventArgs e) {
         }
 
-        void buttonAddTransaction_Click(object sender, EventArgs e)
-        {
-            if (OnCreateNewTransaction != null)
-            {
-                var eventArgs = new NewTransactionEventArgs()
-                {
+        void buttonAddTransaction_Click(object sender, EventArgs e) {
+            if (OnCreateNewTransaction != null) {
+                var eventArgs = new NewTransactionEventArgs() {
                     Details = this.MainForm.textTransactionDetails.Text,
                     Amount = decimal.Parse(this.MainForm.textAmount.Text),
                     Creditor = (Account)this.MainForm.comboCreditor.SelectedItem
@@ -168,13 +139,11 @@ namespace TravelAccounterWin
 
                 if (this.MainForm.radioSingleExpense.Checked)
                     eventArgs.Type = TransactionType.SingleExpense;
-                else if (this.MainForm.radioInternal.Checked)
-                {
+                else if (this.MainForm.radioInternal.Checked) {
                     eventArgs.Type = TransactionType.InternalTransaction;
                     eventArgs.Debtors = new Account[] { (Account)this.MainForm.comboInternal.SelectedItem };
                 }
-                else if (this.MainForm.radioCollectiveExpense.Checked)
-                {
+                else if (this.MainForm.radioCollectiveExpense.Checked) {
                     eventArgs.Type = TransactionType.CollectiveExpense;
                     eventArgs.Debtors = this.MainForm.checkedListForWhom.CheckedItems.Cast<Account>().ToArray();
                 }
@@ -184,24 +153,19 @@ namespace TravelAccounterWin
             this.MainForm.ClearTransactionEntryPanel();
         }
 
-        void toolStripButtonPayClaims_Click(object sender, EventArgs e)
-        {
-            if (OnPayClaims != null)
-            {
+        void toolStripButtonCalculateClaims_Click(object sender, EventArgs e) {
+            if (OnCalculateClaims != null)
+                OnCalculateClaims.Invoke(this, new EventArgs());
+        }
+        void toolStripButtonPayClaims_Click(object sender, EventArgs e) {
+            if (OnPayClaims != null) {
                 PayClaimsEventArgs eventArgs = new PayClaimsEventArgs();
-                foreach (DataGridViewRow row in this.MainForm.dataGridClaims.SelectedRows)
-                {
+                foreach (DataGridViewRow row in this.MainForm.dataGridClaims.SelectedRows) {
                     Claim claim = (Claim)row.DataBoundItem;
                     eventArgs.Claims.Add(claim);
                 }
                 OnPayClaims.Invoke(this, eventArgs);
             }
-        }
-
-        void toolStripButtonCalculateClaims_Click(object sender, EventArgs e)
-        {
-            if (OnCalculateClaims != null)
-                OnCalculateClaims.Invoke(this, new EventArgs());
         }
     }
 }

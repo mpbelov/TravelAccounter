@@ -4,30 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelAccounting.Model
-{
-    public class TransactionLine
-    {
-        public TransactionLine(Transaction transaction)
-        {
+namespace TravelAccounting.Model {
+    public class TransactionLine {
+        public TransactionLine(Transaction transaction) {
             Date = DateTime.UtcNow;
-            this.Transaction = transaction;
+            Transaction = transaction;
         }
 
-        public Account Creditor { get; set; }
-        public Account Debtor { get; set; }
+        public virtual Account Creditor { get; set; }
+        public virtual Account Debtor { get; set; }
 
-        public Transaction Transaction { get; protected set; }
-        public decimal Amount { get; set; }
+        public virtual Transaction Transaction { get; protected set; }
+        public virtual Currency Currency { get { return Transaction.Currency; } }
+        public virtual decimal BaseAmount { get { return ActualAmount * Currency.ExchangeRate; } }
+        public virtual decimal ActualAmount { get; set; }
 
-        public DateTime Date { get; set; }
+        public virtual DateTime Date { get; set; }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return string.Format("Creditor {0}, Debtor {1}, Amount {2}",
                 Creditor == null ? "--" : Creditor.Name,
                 Debtor == null ? "--" : Debtor.Name,
-                Amount);
+                BaseAmount);
         }
     }
 }

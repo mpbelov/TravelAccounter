@@ -13,23 +13,25 @@ namespace FileStorage
 {
     public class FileStorage : IExternalStorage
     {
+        ISerializer serializer = new Serializer();
+
         public Travel ImportTravel(string externalResource)
         {
             var xDoc = XDocument.Load(externalResource);
-            var travel = Serializer.Deserialize(xDoc);
+            var travel = serializer.Deserialize(xDoc);
             return travel;
         }
 
         public Travel ImportTravel(Stream stream)
         {
             var xDoc = XDocument.Load(stream);
-            var travel = Serializer.Deserialize(xDoc);
+            var travel = serializer.Deserialize(xDoc);
             return travel;
         }
 
         public void ExportTravel(Travel travel, string externalResource)
         {
-            var xDoc = Serializer.Serialize(travel);
+            var xDoc = serializer.Serialize(travel);
             if (File.Exists(externalResource))
                 File.Delete(externalResource);
             xDoc.Save(externalResource);
@@ -37,7 +39,7 @@ namespace FileStorage
 
         public Stream ExportTravel(Travel travel)
         {
-            var xDoc = Serializer.Serialize(travel);
+            var xDoc = serializer.Serialize(travel);
 
             Stream stream = new MemoryStream();
             xDoc.Save(stream);

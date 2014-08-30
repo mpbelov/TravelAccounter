@@ -86,6 +86,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewAccountForm";

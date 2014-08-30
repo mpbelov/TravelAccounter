@@ -5,42 +5,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelAccounting.Model
-{
-    public class Travel
-    {
-        public Travel()
-        {
+namespace TravelAccounting.Model {
+    public class Travel {
+        public Travel() {
             Accounts = new List<Account>();
             TransactionLines = new List<TransactionLine>();
             Transactions = new List<Transaction>();
+            Currencies = new List<Currency>();
+            BaseCurrency = new Currency.BaseCurrency();
         }
 
-        public string Name { get; set; }
-        public string Details { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Details { get; set; }
 
-        public IList<Account> Accounts { get; protected set; }
-        public IList<TransactionLine> TransactionLines { get; protected set; }
-        public IList<Transaction> Transactions { get; protected set; }
+        public virtual IList<Account> Accounts { get; protected set; }
+        public virtual IList<TransactionLine> TransactionLines { get; protected set; }
+        public virtual IList<Transaction> Transactions { get; protected set; }
+        public virtual IList<Currency> Currencies { get; protected set; }
+        public virtual Currency BaseCurrency { get; protected set; }
 
-        public Account CreateAccount(string name)
-        {
-            Account a = new Account(this)
-            {
+        public virtual Account CreateAccount(string name) {
+            Account a = new Account(this) {
                 Name = name
             };
             Accounts.Add(a);
             return a;
         }
 
-        public Transaction CreateTransaction(string details)
-        {
-            Transaction t = new Transaction(this)
-            {
-                Details = details
+        public virtual Transaction CreateTransaction(string details) {
+            return CreateTransaction(details, this.BaseCurrency);
+        }
+        public virtual Transaction CreateTransaction(string details, Currency currency) {
+            Transaction t = new Transaction(this) {
+                Details = details,
+                Currency = currency
             };
             Transactions.Add(t);
             return t;
+        }
+
+        public virtual Currency CreateCurrency(string name, string shortName) {
+            var c = new Currency(name, shortName);
+            this.Currencies.Add(c);
+            return c;
         }
     }
 }
