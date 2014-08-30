@@ -19,8 +19,8 @@ namespace TravelAccounting.Model {
         }
 
         public Currency(Currency c) {
-            this.Name = c.Name;
-            this.ShortName = c.ShortName;
+            this.Name = c.Name.ToString();
+            this.ShortName = c.ShortName.ToString();
             this.ExchangeRate = c.ExchangeRate;
         }
 
@@ -43,6 +43,10 @@ namespace TravelAccounting.Model {
                     base.ExchangeRate = 1M;
                 }
             }
+        }
+
+        public override string ToString() {
+            return this.Name;
         }
     }
 }

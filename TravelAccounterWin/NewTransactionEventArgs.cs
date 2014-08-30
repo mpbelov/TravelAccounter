@@ -11,7 +11,8 @@ namespace TravelAccounterWin
     {
         public string Details { get; set; }
         public decimal Amount { get; set; }
-
+        public Currency Currency { get; set; }
+        public decimal ExchangeRate { get; set; }
         public Account Creditor { get; set; }
 
         public TransactionType Type { get; set; }

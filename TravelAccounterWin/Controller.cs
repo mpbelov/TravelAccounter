@@ -57,7 +57,7 @@ namespace TravelAccounterWin {
 
             view.BindTravel(travel);
 
-            view.RefreshTransactions(travel.TransactionLines);
+            view.RefreshTransactions();
         }
         void view_OnSaveTravel(object sender, FileEventArgs e) {
             if (File.Exists(e.FileName))
@@ -68,11 +68,11 @@ namespace TravelAccounterWin {
 
         void view_OnCreateNewAccount(object sender, NameDetailsEventArgs e) {
             var account = travel.CreateAccount(e.Name);
-            view.RefreshAccounts(travel.Accounts);
         }
 
         void view_OnCreateNewTransaction(object sender, NewTransactionEventArgs e) {
-            var t = travel.CreateTransaction(e.Details);
+            var t = travel.CreateTransaction(e.Details, e.Currency);
+            t.Currency.ExchangeRate = e.ExchangeRate;
             switch (e.Type) {
                 case TransactionType.SingleExpense:
                     paymentsEngine.Expense(t, e.Creditor, e.Amount, travel.BaseCurrency);
@@ -86,7 +86,7 @@ namespace TravelAccounterWin {
                     break;
             }
 
-            view.RefreshTransactions(travel.TransactionLines);
+            view.RefreshTransactions();
         }
         
         void view_OnCalculateClaims(object sender, EventArgs e) {
@@ -97,7 +97,7 @@ namespace TravelAccounterWin {
             foreach (var claim in e.Claims)
                 paymentsEngine.PayClaim(claim);
 
-            view.RefreshTransactions(travel.TransactionLines);
+            view.RefreshTransactions();
 
             var claims = claimEngine.CalcClaims();
             this.view.RefreshClaims(claims);

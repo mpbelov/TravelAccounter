@@ -56,7 +56,7 @@ namespace TravelAccounting {
             travel.TransactionLines.Add(new TransactionLine(trans) {
                 Creditor = fromWho,
                 Debtor = toWhom,
-                ActualAmount = amount
+                ActualAmount = amount,
             });
         }
 

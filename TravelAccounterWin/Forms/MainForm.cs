@@ -23,12 +23,16 @@ namespace TravelAccounterWin.Forms {
             this.travelControl.BringToFront();
         }
         public void TurnOnTransactionsView() {
+            this.transactionsControl.UpdateCreditorsList();
+            this.transactionsControl.UpdateCurrenciesList();
+
             this.travelControl.Visible = false;
             this.panelClaims.Visible = false;
             this.transactionsControl.Visible = true;
             this.transactionsControl.BringToFront();
 
             this.transactionsControl.radioSingleExpense.Checked = true;
+
         }
         public void TurnOnClaimsView() {
             this.transactionsControl.Visible = false;

@@ -38,7 +38,7 @@ namespace TravelAccounting.Model {
         public virtual Transaction CreateTransaction(string details, Currency currency) {
             Transaction t = new Transaction(this) {
                 Details = details,
-                Currency = currency
+                Currency = new Currency(currency)
             };
             Transactions.Add(t);
             return t;

@@ -46,17 +46,14 @@ namespace TravelAccounterWin {
             this.MainForm.travelControl.baseCurrencyBindingSource.DataSource = travel.BaseCurrency;
             this.MainForm.travelControl.accountBindingSource.DataSource = travel.Accounts;
             this.MainForm.travelControl.currencyBindingSource.DataSource = travel.Currencies;
+            this.MainForm.transactionsControl.accountBindingSourceCreditor.DataSource = travel.Accounts;
+            this.MainForm.transactionsControl.transactionLineBindingSource.DataSource = travel.TransactionLines;
+            this.MainForm.transactionsControl.currencyBindingSource.DataSource = travel.Currencies;
+            this.MainForm.transactionsControl.baseCurrencyBindingSource.DataSource = travel.BaseCurrency;
         }
 
-        public void RefreshAccounts(ICollection<Account> accounts) {
-            this.MainForm.transactionsControl.accountBindingSourceWho.DataSource = accounts.OrderBy(a => a.Name).ToArray();
-            this.MainForm.transactionsControl.accountBindingSourceWho.ResetBindings(false);
-
-            this.MainForm.transactionsControl.UpdateForWhomList();
-        }
-        public void RefreshTransactions(ICollection<TransactionLine> transactions) {
-            this.MainForm.transactionLineBindingSource.DataSource = transactions.ToArray();
-            this.MainForm.transactionLineBindingSource.ResetBindings(false);
+        public void RefreshTransactions() {
+            this.MainForm.transactionsControl.transactionLineBindingSource.ResetBindings(false);
         }
         public void RefreshClaims(ICollection<Claim> claims) {
             this.MainForm.claimBindingSource.DataSource = (from c in claims
@@ -149,6 +146,8 @@ namespace TravelAccounterWin {
                 var eventArgs = new NewTransactionEventArgs() {
                     Details = this.MainForm.transactionsControl.textTransactionDetails.Text,
                     Amount = decimal.Parse(this.MainForm.transactionsControl.textAmount.Text),
+                    Currency = (Currency)this.MainForm.transactionsControl.comboCurrency.SelectedItem,
+                    ExchangeRate = decimal.Parse(this.MainForm.transactionsControl.textExchangeRate.Text),
                     Creditor = (Account)this.MainForm.transactionsControl.comboCreditor.SelectedItem
                 };
 

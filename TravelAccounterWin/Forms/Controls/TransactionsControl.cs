@@ -16,24 +16,45 @@ namespace TravelAccounterWin.Forms.Controls {
             InitializeComponent();
         }
 
-        public void UpdateForWhomList() {
-            ICollection<Account> accounts = accountBindingSourceWho.DataSource as ICollection<Account>;
-            if (accounts != null) {
-                if (radioCollectiveExpense.Checked) {
-                    checkedListForWhom.Items.Clear();
-                    checkedListForWhom.Items.Add(accounts.Where(a => a == (Account)comboCreditor.SelectedItem).First());
-                    checkedListForWhom.Items.AddRange(accounts.Where(a => a != (Account)comboCreditor.SelectedItem).OrderBy(a => a.Name).ToArray());
-                }
-                else if (radioInternal.Checked) {
-                    comboInternal.Items.Clear();
-                    comboInternal.Items.AddRange(accounts.Where(a => a != (Account)comboCreditor.SelectedItem).OrderBy(a => a.Name).ToArray());
-                }
-            }
-        }
-
         public void ClearTransactionEntryPanel() {
             this.textAmount.Text = string.Empty;
             this.textTransactionDetails.Text = string.Empty;
+        }
+
+        public void UpdateCreditorsList() {
+            this.accountBindingSourceCreditor.ResetBindings(false);
+            if (this.comboCreditor.Items.Count > 0)
+                this.comboCreditor.SelectedIndex = 0;
+            UpdateForWhomList();
+        }
+        public void UpdateForWhomList() {
+            if (this.comboCreditor.SelectedItem != null) {
+                IEnumerable<Account> accounts = this.comboCreditor.Items.Cast<Account>();
+                if (accounts != null) {
+                    checkedListForWhom.Items.Clear();
+                    checkedListForWhom.Items.Add(accounts.Where(a => a == (Account)comboCreditor.SelectedItem).First());
+                    checkedListForWhom.Items.AddRange(accounts.Where(a => a != (Account)comboCreditor.SelectedItem).OrderBy(a => a.Name).ToArray());
+
+                    comboInternal.Items.Clear();
+                    comboInternal.Items.AddRange(accounts.Where(a => a != (Account)comboCreditor.SelectedItem).OrderBy(a => a.Name).ToArray());
+                    if (comboInternal.Items.Count > 0)
+                        comboInternal.SelectedIndex = 0;
+                }
+            }
+        }
+        public void UpdateCurrenciesList() {
+            this.currencyBindingSource.ResetBindings(false);
+            this.baseCurrencyBindingSource.ResetBindings(false);
+
+            this.comboCurrency.Items.Clear();
+            this.comboCurrency.Items.Add((Currency)this.baseCurrencyBindingSource.DataSource);
+            var currencies = this.currencyBindingSource.DataSource as ICollection<Currency>;
+            if (currencies != null) {
+                foreach (var c in currencies)
+                    this.comboCurrency.Items.Add(c);
+            }
+            if (this.comboCurrency.Items.Count > 0)
+                this.comboCurrency.SelectedIndex = 0;
         }
 
         private void comboCreditor_SelectedIndexChanged(object sender, EventArgs e) {
@@ -57,7 +78,7 @@ namespace TravelAccounterWin.Forms.Controls {
 
             this.comboInternal.Enabled = false;
 
-            UpdateForWhomList();
+            //UpdateForWhomList();
         }
 
         private void radioInternal_CheckedChanged(object sender, EventArgs e) {
@@ -68,7 +89,7 @@ namespace TravelAccounterWin.Forms.Controls {
 
             this.comboInternal.Enabled = true;
 
-            UpdateForWhomList();
+            //UpdateForWhomList();
         }
 
         private void buttonCheckAll_Click(object sender, EventArgs e) {
@@ -94,7 +115,8 @@ namespace TravelAccounterWin.Forms.Controls {
             }
         }
 
-
-
+        private void comboCurrency_SelectedIndexChanged(object sender, EventArgs e) {
+            this.textExchangeRate.Text = ((Currency)this.comboCurrency.SelectedItem).ExchangeRate.ToString();
+        }
     }
 }

@@ -49,7 +49,6 @@
             this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claimBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transactionsControl = new TravelAccounterWin.Forms.Controls.TransactionsControl();
             this.travelControl = new TravelAccounterWin.Forms.Controls.TravelControl();
             this.panelTableStart.SuspendLayout();
@@ -60,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).BeginInit();
             this.toolStripClaims.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTableStart
@@ -271,10 +269,6 @@
             this.claimBindingSource.AllowNew = false;
             this.claimBindingSource.DataSource = typeof(TravelAccounting.Model.Claim);
             // 
-            // transactionLineBindingSource
-            // 
-            this.transactionLineBindingSource.DataSource = typeof(TravelAccounting.Model.TransactionLine);
-            // 
             // transactionsControl
             // 
             this.transactionsControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -316,7 +310,6 @@
             this.toolStripClaims.ResumeLayout(false);
             this.toolStripClaims.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,7 +324,6 @@
         private System.Windows.Forms.Button buttonTransaction;
         private System.Windows.Forms.Panel panelWorkArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        internal System.Windows.Forms.BindingSource transactionLineBindingSource;
         private System.Windows.Forms.Button buttonClaims;
         private System.Windows.Forms.Panel panelClaims;
         private System.Windows.Forms.ToolStrip toolStripClaims;

@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboInternal = new System.Windows.Forms.ComboBox();
             this.buttonCheckNone = new System.Windows.Forms.Button();
             this.buttonCheckAll = new System.Windows.Forms.Button();
@@ -35,12 +36,10 @@
             this.labelForWhom = new System.Windows.Forms.Label();
             this.radioCollectiveExpense = new System.Windows.Forms.RadioButton();
             this.radioSingleExpense = new System.Windows.Forms.RadioButton();
-            this.comboCreditor = new System.Windows.Forms.ComboBox();
             this.labelCreditor = new System.Windows.Forms.Label();
             this.textTransactionDetails = new System.Windows.Forms.TextBox();
             this.labelTransactionDetails = new System.Windows.Forms.Label();
             this.errorProviderNewTransaction = new System.Windows.Forms.ErrorProvider(this.components);
-            this.accountBindingSourceWho = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelTableNewTransaction = new System.Windows.Forms.TableLayoutPanel();
             this.groupTransactionType = new System.Windows.Forms.GroupBox();
@@ -49,16 +48,31 @@
             this.textExchangeRate = new System.Windows.Forms.TextBox();
             this.labelExchangeRate = new System.Windows.Forms.Label();
             this.labelCurrency = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboCurrency = new System.Windows.Forms.ComboBox();
+            this.currencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboCreditor = new System.Windows.Forms.ComboBox();
+            this.accountBindingSourceCreditor = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.creditorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.debtorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baseAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actualAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.baseCurrencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceWho)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelTableNewTransaction.SuspendLayout();
             this.groupTransactionType.SuspendLayout();
             this.panelTableTransactionType.SuspendLayout();
             this.tableLayoutCheckAllNone.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.currencyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceCreditor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseCurrencyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboInternal
@@ -81,6 +95,7 @@
             this.buttonCheckNone.TabIndex = 1;
             this.buttonCheckNone.Text = "Check none";
             this.buttonCheckNone.UseVisualStyleBackColor = true;
+            this.buttonCheckNone.Click += new System.EventHandler(this.buttonCheckNone_Click);
             // 
             // buttonCheckAll
             // 
@@ -92,6 +107,7 @@
             this.buttonCheckAll.TabIndex = 0;
             this.buttonCheckAll.Text = "Check all";
             this.buttonCheckAll.UseVisualStyleBackColor = true;
+            this.buttonCheckAll.Click += new System.EventHandler(this.buttonCheckAll_Click);
             // 
             // checkedListForWhom
             // 
@@ -110,7 +126,7 @@
             this.buttonAddTransaction.Location = new System.Drawing.Point(5, 416);
             this.buttonAddTransaction.Margin = new System.Windows.Forms.Padding(5, 10, 2, 3);
             this.buttonAddTransaction.Name = "buttonAddTransaction";
-            this.buttonAddTransaction.Size = new System.Drawing.Size(258, 59);
+            this.buttonAddTransaction.Size = new System.Drawing.Size(258, 57);
             this.buttonAddTransaction.TabIndex = 15;
             this.buttonAddTransaction.Text = "Add transaction";
             this.buttonAddTransaction.UseVisualStyleBackColor = true;
@@ -122,6 +138,7 @@
             this.textAmount.Name = "textAmount";
             this.textAmount.Size = new System.Drawing.Size(169, 22);
             this.textAmount.TabIndex = 4;
+            this.textAmount.TextChanged += new System.EventHandler(this.textAmount_TextChanged);
             // 
             // labelAmount
             // 
@@ -143,6 +160,7 @@
             this.radioInternal.TabIndex = 2;
             this.radioInternal.Text = "Transfer";
             this.radioInternal.UseVisualStyleBackColor = true;
+            this.radioInternal.CheckedChanged += new System.EventHandler(this.radioInternal_CheckedChanged);
             // 
             // labelForWhom
             // 
@@ -165,6 +183,7 @@
             this.radioCollectiveExpense.TabIndex = 1;
             this.radioCollectiveExpense.Text = "Collective expense";
             this.radioCollectiveExpense.UseVisualStyleBackColor = true;
+            this.radioCollectiveExpense.CheckedChanged += new System.EventHandler(this.radioCollectiveExpense_CheckedChanged);
             // 
             // radioSingleExpense
             // 
@@ -176,26 +195,17 @@
             this.radioSingleExpense.TabIndex = 0;
             this.radioSingleExpense.Text = "Single expense";
             this.radioSingleExpense.UseVisualStyleBackColor = true;
-            // 
-            // comboCreditor
-            // 
-            this.comboCreditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboCreditor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCreditor.FormattingEnabled = true;
-            this.comboCreditor.Location = new System.Drawing.Point(93, 104);
-            this.comboCreditor.Name = "comboCreditor";
-            this.comboCreditor.Size = new System.Drawing.Size(169, 21);
-            this.comboCreditor.TabIndex = 2;
+            this.radioSingleExpense.CheckedChanged += new System.EventHandler(this.radioSingleExpense_CheckedChanged);
             // 
             // labelCreditor
             // 
             this.labelCreditor.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelCreditor.AutoSize = true;
-            this.labelCreditor.Location = new System.Drawing.Point(5, 108);
+            this.labelCreditor.Location = new System.Drawing.Point(5, 7);
             this.labelCreditor.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
             this.labelCreditor.Name = "labelCreditor";
             this.labelCreditor.Size = new System.Drawing.Size(58, 13);
-            this.labelCreditor.TabIndex = 1;
+            this.labelCreditor.TabIndex = 0;
             this.labelCreditor.Text = "Who pays";
             // 
             // textTransactionDetails
@@ -222,10 +232,6 @@
             // 
             this.errorProviderNewTransaction.ContainerControl = this;
             // 
-            // accountBindingSourceWho
-            // 
-            this.accountBindingSourceWho.DataSource = typeof(TravelAccounting.Model.Account);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -238,7 +244,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 519);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1053, 556);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelTableNewTransaction
@@ -246,12 +252,10 @@
             this.panelTableNewTransaction.ColumnCount = 2;
             this.panelTableNewTransaction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.panelTableNewTransaction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelTableNewTransaction.Controls.Add(this.groupTransactionType, 0, 0);
+            this.panelTableNewTransaction.Controls.Add(this.groupTransactionType, 0, 1);
             this.panelTableNewTransaction.Controls.Add(this.textTransactionDetails, 1, 7);
             this.panelTableNewTransaction.Controls.Add(this.tableLayoutCheckAllNone, 1, 6);
             this.panelTableNewTransaction.Controls.Add(this.labelTransactionDetails, 0, 7);
-            this.panelTableNewTransaction.Controls.Add(this.labelCreditor, 0, 1);
-            this.panelTableNewTransaction.Controls.Add(this.comboCreditor, 1, 1);
             this.panelTableNewTransaction.Controls.Add(this.textExchangeRate, 1, 4);
             this.panelTableNewTransaction.Controls.Add(this.checkedListForWhom, 1, 5);
             this.panelTableNewTransaction.Controls.Add(this.labelAmount, 0, 2);
@@ -259,8 +263,10 @@
             this.panelTableNewTransaction.Controls.Add(this.textAmount, 1, 2);
             this.panelTableNewTransaction.Controls.Add(this.labelExchangeRate, 0, 4);
             this.panelTableNewTransaction.Controls.Add(this.labelCurrency, 0, 3);
-            this.panelTableNewTransaction.Controls.Add(this.comboBox1, 1, 3);
+            this.panelTableNewTransaction.Controls.Add(this.comboCurrency, 1, 3);
             this.panelTableNewTransaction.Controls.Add(this.buttonAddTransaction, 1, 8);
+            this.panelTableNewTransaction.Controls.Add(this.labelCreditor, 0, 0);
+            this.panelTableNewTransaction.Controls.Add(this.comboCreditor, 1, 0);
             this.panelTableNewTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTableNewTransaction.Location = new System.Drawing.Point(3, 3);
             this.panelTableNewTransaction.Name = "panelTableNewTransaction";
@@ -276,7 +282,8 @@
             this.panelTableNewTransaction.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelTableNewTransaction.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.panelTableNewTransaction.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.panelTableNewTransaction.Size = new System.Drawing.Size(267, 513);
+            this.panelTableNewTransaction.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.panelTableNewTransaction.Size = new System.Drawing.Size(267, 550);
             this.panelTableNewTransaction.TabIndex = 0;
             // 
             // groupTransactionType
@@ -284,12 +291,12 @@
             this.panelTableNewTransaction.SetColumnSpan(this.groupTransactionType, 2);
             this.groupTransactionType.Controls.Add(this.panelTableTransactionType);
             this.groupTransactionType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupTransactionType.Location = new System.Drawing.Point(3, 3);
+            this.groupTransactionType.Location = new System.Drawing.Point(3, 30);
             this.groupTransactionType.Margin = new System.Windows.Forms.Padding(3, 3, 1, 3);
             this.groupTransactionType.Name = "groupTransactionType";
             this.groupTransactionType.Padding = new System.Windows.Forms.Padding(3, 3, 1, 3);
             this.groupTransactionType.Size = new System.Drawing.Size(261, 95);
-            this.groupTransactionType.TabIndex = 0;
+            this.groupTransactionType.TabIndex = 2;
             this.groupTransactionType.TabStop = false;
             this.groupTransactionType.Text = "Transaction type";
             // 
@@ -360,24 +367,113 @@
             this.labelCurrency.TabIndex = 5;
             this.labelCurrency.Text = "Currency";
             // 
-            // comboBox1
+            // comboCurrency
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 159);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 21);
-            this.comboBox1.TabIndex = 6;
+            this.comboCurrency.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCurrency.FormattingEnabled = true;
+            this.comboCurrency.Location = new System.Drawing.Point(93, 159);
+            this.comboCurrency.Name = "comboCurrency";
+            this.comboCurrency.Size = new System.Drawing.Size(169, 21);
+            this.comboCurrency.TabIndex = 6;
+            this.comboCurrency.SelectedIndexChanged += new System.EventHandler(this.comboCurrency_SelectedIndexChanged);
+            // 
+            // currencyBindingSource
+            // 
+            this.currencyBindingSource.DataSource = typeof(TravelAccounting.Model.Currency);
+            // 
+            // comboCreditor
+            // 
+            this.comboCreditor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboCreditor.DataSource = this.accountBindingSourceCreditor;
+            this.comboCreditor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCreditor.FormattingEnabled = true;
+            this.comboCreditor.Location = new System.Drawing.Point(93, 3);
+            this.comboCreditor.Name = "comboCreditor";
+            this.comboCreditor.Size = new System.Drawing.Size(169, 21);
+            this.comboCreditor.TabIndex = 1;
+            this.comboCreditor.SelectedIndexChanged += new System.EventHandler(this.comboCreditor_SelectedIndexChanged);
+            // 
+            // accountBindingSourceCreditor
+            // 
+            this.accountBindingSourceCreditor.DataSource = typeof(TravelAccounting.Model.Account);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.creditorDataGridViewTextBoxColumn,
+            this.debtorDataGridViewTextBoxColumn,
+            this.transactionDataGridViewTextBoxColumn,
+            this.baseAmountDataGridViewTextBoxColumn,
+            this.actualAmountDataGridViewTextBoxColumn,
+            this.currencyDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.transactionLineBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(276, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(715, 513);
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.Size = new System.Drawing.Size(774, 550);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // creditorDataGridViewTextBoxColumn
+            // 
+            this.creditorDataGridViewTextBoxColumn.DataPropertyName = "Creditor";
+            this.creditorDataGridViewTextBoxColumn.HeaderText = "Creditor";
+            this.creditorDataGridViewTextBoxColumn.Name = "creditorDataGridViewTextBoxColumn";
+            // 
+            // debtorDataGridViewTextBoxColumn
+            // 
+            this.debtorDataGridViewTextBoxColumn.DataPropertyName = "Debtor";
+            this.debtorDataGridViewTextBoxColumn.HeaderText = "Debtor";
+            this.debtorDataGridViewTextBoxColumn.Name = "debtorDataGridViewTextBoxColumn";
+            // 
+            // transactionDataGridViewTextBoxColumn
+            // 
+            this.transactionDataGridViewTextBoxColumn.DataPropertyName = "Transaction";
+            this.transactionDataGridViewTextBoxColumn.HeaderText = "Transaction";
+            this.transactionDataGridViewTextBoxColumn.Name = "transactionDataGridViewTextBoxColumn";
+            this.transactionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // baseAmountDataGridViewTextBoxColumn
+            // 
+            this.baseAmountDataGridViewTextBoxColumn.DataPropertyName = "BaseAmount";
+            this.baseAmountDataGridViewTextBoxColumn.HeaderText = "Base Currency Amount";
+            this.baseAmountDataGridViewTextBoxColumn.Name = "baseAmountDataGridViewTextBoxColumn";
+            this.baseAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // actualAmountDataGridViewTextBoxColumn
+            // 
+            this.actualAmountDataGridViewTextBoxColumn.DataPropertyName = "ActualAmount";
+            this.actualAmountDataGridViewTextBoxColumn.HeaderText = "Real Currency Amount";
+            this.actualAmountDataGridViewTextBoxColumn.Name = "actualAmountDataGridViewTextBoxColumn";
+            // 
+            // currencyDataGridViewTextBoxColumn
+            // 
+            this.currencyDataGridViewTextBoxColumn.DataPropertyName = "Currency";
+            this.currencyDataGridViewTextBoxColumn.HeaderText = "Real Currency";
+            this.currencyDataGridViewTextBoxColumn.Name = "currencyDataGridViewTextBoxColumn";
+            this.currencyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            dataGridViewCellStyle3.Format = "G";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // transactionLineBindingSource
+            // 
+            this.transactionLineBindingSource.DataSource = typeof(TravelAccounting.Model.TransactionLine);
+            // 
+            // baseCurrencyBindingSource
+            // 
+            this.baseCurrencyBindingSource.DataSource = typeof(TravelAccounting.Model.Currency);
             // 
             // TransactionsControl
             // 
@@ -386,9 +482,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "TransactionsControl";
-            this.Size = new System.Drawing.Size(994, 519);
+            this.Size = new System.Drawing.Size(1053, 556);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceWho)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelTableNewTransaction.ResumeLayout(false);
             this.panelTableNewTransaction.PerformLayout();
@@ -397,7 +492,11 @@
             this.panelTableTransactionType.ResumeLayout(false);
             this.panelTableTransactionType.PerformLayout();
             this.tableLayoutCheckAllNone.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.currencyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceCreditor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseCurrencyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,21 +514,31 @@
         private System.Windows.Forms.Label labelForWhom;
         internal System.Windows.Forms.RadioButton radioCollectiveExpense;
         internal System.Windows.Forms.RadioButton radioSingleExpense;
-        internal System.Windows.Forms.ComboBox comboCreditor;
         private System.Windows.Forms.Label labelCreditor;
         internal System.Windows.Forms.TextBox textTransactionDetails;
         private System.Windows.Forms.Label labelTransactionDetails;
         private System.Windows.Forms.ErrorProvider errorProviderNewTransaction;
-        internal System.Windows.Forms.BindingSource accountBindingSourceWho;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupTransactionType;
         private System.Windows.Forms.Label labelCurrency;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textExchangeRate;
         private System.Windows.Forms.Label labelExchangeRate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutCheckAllNone;
         private System.Windows.Forms.TableLayoutPanel panelTableNewTransaction;
         private System.Windows.Forms.TableLayoutPanel panelTableTransactionType;
         private System.Windows.Forms.DataGridView dataGridView1;
+        internal System.Windows.Forms.ComboBox comboCreditor;
+        internal System.Windows.Forms.BindingSource accountBindingSourceCreditor;
+        internal System.Windows.Forms.BindingSource transactionLineBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creditorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debtorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transactionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baseAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actualAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        internal System.Windows.Forms.ComboBox comboCurrency;
+        internal System.Windows.Forms.TextBox textExchangeRate;
+        internal System.Windows.Forms.BindingSource currencyBindingSource;
+        internal System.Windows.Forms.BindingSource baseCurrencyBindingSource;
     }
 }
