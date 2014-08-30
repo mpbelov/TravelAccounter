@@ -45,6 +45,7 @@ namespace TravelAccounterWin {
             this.MainForm.travelControl.travelBindingSource.DataSource = travel;
             this.MainForm.travelControl.baseCurrencyBindingSource.DataSource = travel.BaseCurrency;
             this.MainForm.travelControl.accountBindingSource.DataSource = travel.Accounts;
+            this.MainForm.travelControl.currencyBindingSource.DataSource = travel.Currencies;
         }
 
         public void RefreshAccounts(ICollection<Account> accounts) {

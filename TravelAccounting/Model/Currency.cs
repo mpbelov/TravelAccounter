@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAccounting.Model {
     public class Currency {
+        public Currency() { }
         public Currency(string name) {
             this.Name = name;
         }
