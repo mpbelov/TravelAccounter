@@ -39,8 +39,9 @@
             this.buttonSaveTravel = new System.Windows.Forms.Button();
             this.buttonClaims = new System.Windows.Forms.Button();
             this.buttonTransaction = new System.Windows.Forms.Button();
-            this.buttonAccounts = new System.Windows.Forms.Button();
+            this.buttonTravel = new System.Windows.Forms.Button();
             this.panelWorkArea = new System.Windows.Forms.Panel();
+            this.travelControl = new TravelAccounterWin.Forms.Controls.TravelControl();
             this.panelClaims = new System.Windows.Forms.Panel();
             this.dataGridClaims = new System.Windows.Forms.DataGridView();
             this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,16 +74,7 @@
             this.transactionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panelAccounts = new System.Windows.Forms.Panel();
-            this.dataGridAccounts = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.debtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expenseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripAccounts = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonNewAccount = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDeleteAccount = new System.Windows.Forms.ToolStripButton();
             this.errorProviderNewTransaction = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTableStart.SuspendLayout();
             this.panelMainPanel.SuspendLayout();
@@ -97,10 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceWho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).BeginInit();
-            this.panelAccounts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
-            this.toolStripAccounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,7 +100,7 @@
             this.panelTableStart.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelTableStart.Controls.Add(this.buttonOpen, 0, 1);
             this.panelTableStart.Controls.Add(this.buttonStartNewTravel, 0, 0);
-            this.panelTableStart.Location = new System.Drawing.Point(258, 182);
+            this.panelTableStart.Location = new System.Drawing.Point(384, 285);
             this.panelTableStart.Name = "panelTableStart";
             this.panelTableStart.RowCount = 2;
             this.panelTableStart.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -153,7 +142,7 @@
             this.panelMainPanel.RowCount = 2;
             this.panelMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.panelMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelMainPanel.Size = new System.Drawing.Size(791, 480);
+            this.panelMainPanel.Size = new System.Drawing.Size(1042, 687);
             this.panelMainPanel.TabIndex = 5;
             // 
             // panelTop
@@ -163,18 +152,18 @@
             this.panelTop.Controls.Add(this.buttonSaveTravel);
             this.panelTop.Controls.Add(this.buttonClaims);
             this.panelTop.Controls.Add(this.buttonTransaction);
-            this.panelTop.Controls.Add(this.buttonAccounts);
+            this.panelTop.Controls.Add(this.buttonTravel);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTop.Location = new System.Drawing.Point(1, 1);
             this.panelTop.Margin = new System.Windows.Forms.Padding(1);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(789, 68);
+            this.panelTop.Size = new System.Drawing.Size(1040, 68);
             this.panelTop.TabIndex = 0;
             // 
             // buttonOpenTravel
             // 
             this.buttonOpenTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonOpenTravel.Location = new System.Drawing.Point(618, 3);
+            this.buttonOpenTravel.Location = new System.Drawing.Point(869, 3);
             this.buttonOpenTravel.Name = "buttonOpenTravel";
             this.buttonOpenTravel.Size = new System.Drawing.Size(77, 62);
             this.buttonOpenTravel.TabIndex = 2;
@@ -184,7 +173,7 @@
             // buttonSaveTravel
             // 
             this.buttonSaveTravel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonSaveTravel.Location = new System.Drawing.Point(701, 3);
+            this.buttonSaveTravel.Location = new System.Drawing.Point(952, 3);
             this.buttonSaveTravel.Name = "buttonSaveTravel";
             this.buttonSaveTravel.Size = new System.Drawing.Size(77, 62);
             this.buttonSaveTravel.TabIndex = 2;
@@ -213,28 +202,38 @@
             this.buttonTransaction.UseVisualStyleBackColor = true;
             this.buttonTransaction.Click += new System.EventHandler(this.buttonTransaction_Click);
             // 
-            // buttonAccounts
+            // buttonTravel
             // 
-            this.buttonAccounts.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonAccounts.Location = new System.Drawing.Point(3, 3);
-            this.buttonAccounts.Name = "buttonAccounts";
-            this.buttonAccounts.Size = new System.Drawing.Size(77, 62);
-            this.buttonAccounts.TabIndex = 0;
-            this.buttonAccounts.Text = "Accounts";
-            this.buttonAccounts.UseVisualStyleBackColor = true;
-            this.buttonAccounts.Click += new System.EventHandler(this.buttonAccounts_Click);
+            this.buttonTravel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonTravel.Location = new System.Drawing.Point(3, 3);
+            this.buttonTravel.Name = "buttonTravel";
+            this.buttonTravel.Size = new System.Drawing.Size(77, 62);
+            this.buttonTravel.TabIndex = 0;
+            this.buttonTravel.Text = "Travel";
+            this.buttonTravel.UseVisualStyleBackColor = true;
+            this.buttonTravel.Click += new System.EventHandler(this.buttonAccounts_Click);
             // 
             // panelWorkArea
             // 
+            this.panelWorkArea.Controls.Add(this.travelControl);
             this.panelWorkArea.Controls.Add(this.panelClaims);
             this.panelWorkArea.Controls.Add(this.panelTransactions);
-            this.panelWorkArea.Controls.Add(this.panelAccounts);
             this.panelWorkArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWorkArea.Location = new System.Drawing.Point(1, 71);
             this.panelWorkArea.Margin = new System.Windows.Forms.Padding(1);
             this.panelWorkArea.Name = "panelWorkArea";
-            this.panelWorkArea.Size = new System.Drawing.Size(789, 408);
+            this.panelWorkArea.Size = new System.Drawing.Size(1040, 615);
             this.panelWorkArea.TabIndex = 1;
+            // 
+            // travelControl
+            // 
+            this.travelControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.travelControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.travelControl.Location = new System.Drawing.Point(4, 3);
+            this.travelControl.MinimumSize = new System.Drawing.Size(933, 567);
+            this.travelControl.Name = "travelControl";
+            this.travelControl.Size = new System.Drawing.Size(933, 567);
+            this.travelControl.TabIndex = 3;
             // 
             // panelClaims
             // 
@@ -553,97 +552,10 @@
             // 
             this.transactionLineBindingSource.DataSource = typeof(TravelAccounting.Model.TransactionLine);
             // 
-            // panelAccounts
-            // 
-            this.panelAccounts.Controls.Add(this.dataGridAccounts);
-            this.panelAccounts.Controls.Add(this.toolStripAccounts);
-            this.panelAccounts.Location = new System.Drawing.Point(0, 20);
-            this.panelAccounts.Margin = new System.Windows.Forms.Padding(1);
-            this.panelAccounts.Name = "panelAccounts";
-            this.panelAccounts.Size = new System.Drawing.Size(749, 388);
-            this.panelAccounts.TabIndex = 0;
-            // 
-            // dataGridAccounts
-            // 
-            this.dataGridAccounts.AutoGenerateColumns = false;
-            this.dataGridAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.creditDataGridViewTextBoxColumn,
-            this.debtDataGridViewTextBoxColumn,
-            this.expenseDataGridViewTextBoxColumn});
-            this.dataGridAccounts.DataSource = this.accountBindingSource;
-            this.dataGridAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridAccounts.Location = new System.Drawing.Point(0, 25);
-            this.dataGridAccounts.Name = "dataGridAccounts";
-            this.dataGridAccounts.RowHeadersVisible = false;
-            this.dataGridAccounts.Size = new System.Drawing.Size(749, 363);
-            this.dataGridAccounts.TabIndex = 1;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.Frozen = true;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // creditDataGridViewTextBoxColumn
-            // 
-            this.creditDataGridViewTextBoxColumn.DataPropertyName = "Credit";
-            this.creditDataGridViewTextBoxColumn.Frozen = true;
-            this.creditDataGridViewTextBoxColumn.HeaderText = "Credit";
-            this.creditDataGridViewTextBoxColumn.Name = "creditDataGridViewTextBoxColumn";
-            this.creditDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // debtDataGridViewTextBoxColumn
-            // 
-            this.debtDataGridViewTextBoxColumn.DataPropertyName = "Debt";
-            this.debtDataGridViewTextBoxColumn.Frozen = true;
-            this.debtDataGridViewTextBoxColumn.HeaderText = "Debt";
-            this.debtDataGridViewTextBoxColumn.Name = "debtDataGridViewTextBoxColumn";
-            this.debtDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // expenseDataGridViewTextBoxColumn
-            // 
-            this.expenseDataGridViewTextBoxColumn.DataPropertyName = "Expense";
-            this.expenseDataGridViewTextBoxColumn.Frozen = true;
-            this.expenseDataGridViewTextBoxColumn.HeaderText = "Expense";
-            this.expenseDataGridViewTextBoxColumn.Name = "expenseDataGridViewTextBoxColumn";
-            this.expenseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // accountBindingSource
             // 
             this.accountBindingSource.AllowNew = false;
             this.accountBindingSource.DataSource = typeof(TravelAccounting.Model.Account);
-            // 
-            // toolStripAccounts
-            // 
-            this.toolStripAccounts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonNewAccount,
-            this.toolStripButtonDeleteAccount});
-            this.toolStripAccounts.Location = new System.Drawing.Point(0, 0);
-            this.toolStripAccounts.Name = "toolStripAccounts";
-            this.toolStripAccounts.Size = new System.Drawing.Size(749, 25);
-            this.toolStripAccounts.TabIndex = 0;
-            this.toolStripAccounts.Text = "Accounts";
-            // 
-            // toolStripButtonNewAccount
-            // 
-            this.toolStripButtonNewAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonNewAccount.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNewAccount.Image")));
-            this.toolStripButtonNewAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonNewAccount.Name = "toolStripButtonNewAccount";
-            this.toolStripButtonNewAccount.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButtonNewAccount.Text = "New account";
-            // 
-            // toolStripButtonDeleteAccount
-            // 
-            this.toolStripButtonDeleteAccount.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonDeleteAccount.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDeleteAccount.Image")));
-            this.toolStripButtonDeleteAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDeleteAccount.Name = "toolStripButtonDeleteAccount";
-            this.toolStripButtonDeleteAccount.Size = new System.Drawing.Size(90, 22);
-            this.toolStripButtonDeleteAccount.Text = "Delete account";
             // 
             // errorProviderNewTransaction
             // 
@@ -653,7 +565,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(791, 480);
+            this.ClientSize = new System.Drawing.Size(1042, 687);
             this.Controls.Add(this.panelMainPanel);
             this.Controls.Add(this.panelTableStart);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -677,12 +589,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSourceWho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionLineBindingSource)).EndInit();
-            this.panelAccounts.ResumeLayout(false);
-            this.panelAccounts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
-            this.toolStripAccounts.ResumeLayout(false);
-            this.toolStripAccounts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewTransaction)).EndInit();
             this.ResumeLayout(false);
 
@@ -694,15 +601,10 @@
         internal System.Windows.Forms.TableLayoutPanel panelTableStart;
         internal System.Windows.Forms.TableLayoutPanel panelMainPanel;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Button buttonAccounts;
+        private System.Windows.Forms.Button buttonTravel;
         private System.Windows.Forms.Button buttonTransaction;
         private System.Windows.Forms.Panel panelWorkArea;
-        private System.Windows.Forms.ToolStrip toolStripAccounts;
-        internal System.Windows.Forms.Panel panelAccounts;
         internal System.Windows.Forms.BindingSource accountBindingSource;
-        internal System.Windows.Forms.ToolStripButton toolStripButtonNewAccount;
-        internal System.Windows.Forms.ToolStripButton toolStripButtonDeleteAccount;
-        internal System.Windows.Forms.DataGridView dataGridAccounts;
         private System.Windows.Forms.TableLayoutPanel panelTransactions;
         private System.Windows.Forms.Panel panelNewTransaction;
         private System.Windows.Forms.Label labelTransactionDetails;
@@ -735,10 +637,6 @@
         internal System.Windows.Forms.ToolStripButton toolStripButtonCalculateClaims;
         internal System.Windows.Forms.ToolStripButton toolStripButtonPayClaims;
         internal System.Windows.Forms.DataGridView dataGridClaims;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creditDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn debtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expenseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn creditorDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn debtorDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
@@ -746,6 +644,7 @@
         internal System.Windows.Forms.Button buttonOpen;
         internal System.Windows.Forms.Button buttonOpenTravel;
         internal System.Windows.Forms.Button buttonSaveTravel;
+        internal Controls.TravelControl travelControl;
 
     }
 }

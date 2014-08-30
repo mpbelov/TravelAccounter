@@ -19,11 +19,11 @@ namespace TravelAccounterWin.Forms {
         public void TurnOnAccountsView() {
             this.panelTransactions.Visible = false;
             this.panelClaims.Visible = false;
-            this.panelAccounts.Visible = true;
-            this.panelAccounts.BringToFront();
+            this.travelControl.Visible = true;
+            this.travelControl.BringToFront();
         }
         public void TurnOnTransactionsView() {
-            this.panelAccounts.Visible = false;
+            this.travelControl.Visible = false;
             this.panelClaims.Visible = false;
             this.panelTransactions.Visible = true;
             this.panelTransactions.BringToFront();
@@ -32,7 +32,7 @@ namespace TravelAccounterWin.Forms {
         }
         public void TurnOnClaimsView() {
             this.panelTransactions.Visible = false;
-            this.panelAccounts.Visible = false;
+            this.travelControl.Visible = false;
             this.panelClaims.Visible = true;
             this.panelClaims.BringToFront();
         }

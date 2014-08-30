@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountEventArgs.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="FileEventArgs.cs" />
     <Compile Include="Forms\Controls\TransactionsControl.cs">
@@ -108,6 +109,7 @@
     </Compile>
     <None Include="Properties\DataSources\TravelAccounting.Model.Account.datasource" />
     <None Include="Properties\DataSources\TravelAccounting.Model.Claim.datasource" />
+    <None Include="Properties\DataSources\TravelAccounting.Model.Currency.datasource" />
     <None Include="Properties\DataSources\TravelAccounting.Model.TransactionLine.datasource" />
     <None Include="Properties\DataSources\TravelAccounting.Model.Travel.datasource" />
     <None Include="Properties\Settings.settings">

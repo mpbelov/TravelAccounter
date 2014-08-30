@@ -16,11 +16,11 @@ namespace TravelAccounterWin {
             this.MainForm.buttonOpen.Click += buttonOpen_Click;
             this.MainForm.buttonOpenTravel.Click += buttonOpen_Click;
             this.MainForm.buttonSaveTravel.Click += buttonSaveTravel_Click;
-            this.MainForm.toolStripButtonNewAccount.Click += toolStripButtonNewAccount_Click;
-            this.MainForm.toolStripButtonDeleteAccount.Click += toolStripButtonDeleteAccount_Click;
             this.MainForm.buttonAddTransaction.Click += buttonAddTransaction_Click;
             this.MainForm.toolStripButtonCalculateClaims.Click += toolStripButtonCalculateClaims_Click;
             this.MainForm.toolStripButtonPayClaims.Click += toolStripButtonPayClaims_Click;
+
+            this.MainForm.travelControl.accountBindingSource.AddingNew += accountBindingSource_AddingNew;
 
             this.MainForm.panelMainPanel.Visible = false;
             this.MainForm.panelMainPanel.SendToBack();
@@ -38,6 +38,14 @@ namespace TravelAccounterWin {
         public event EventHandler<PayClaimsEventArgs> OnPayClaims;
         public event EventHandler<FileEventArgs> OnOpenTravel;
         public event EventHandler<FileEventArgs> OnSaveTravel;
+
+        public event EventHandler<AccountEventArgs> OnAccountCreating;
+
+        public void BindTravel(Travel travel) {
+            this.MainForm.travelControl.travelBindingSource.DataSource = travel;
+            this.MainForm.travelControl.baseCurrencyBindingSource.DataSource = travel.BaseCurrency;
+            this.MainForm.travelControl.accountBindingSource.DataSource = travel.Accounts;
+        }
 
         public void RefreshAccounts(ICollection<Account> accounts) {
             this.MainForm.accountBindingSource.DataSource = accounts.OrderBy(a => a.Name).ToArray();
@@ -59,6 +67,15 @@ namespace TravelAccounterWin {
             this.MainForm.claimBindingSource.ResetBindings(false);
         }
 
+        void accountBindingSource_AddingNew(object sender, System.ComponentModel.AddingNewEventArgs e) {
+            var accEventArgs = new AccountEventArgs();
+            if (OnAccountCreating != null) {
+                OnAccountCreating.Invoke(this, accEventArgs);
+            }
+            e.NewObject = accEventArgs.Account;
+        }
+
+        
         void buttonStartNewTravel_Click(object sender, EventArgs e) {
             var form = new NewTravelForm();
             var res = form.ShowDialog(MainForm);

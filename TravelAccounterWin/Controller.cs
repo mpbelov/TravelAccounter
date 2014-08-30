@@ -22,8 +22,13 @@ namespace TravelAccounterWin {
             view.OnCreateNewTransaction += view_OnCreateNewTransaction;
             view.OnCalculateClaims += view_OnCalculateClaims;
             view.OnPayClaims += view_OnPayClaims;
+            view.OnAccountCreating += view_OnAccountCreating;
 
             externalStorage = new FileStorage.FileStorage();
+        }
+
+        void view_OnAccountCreating(object sender, AccountEventArgs e) {
+            e.Account = new Account(travel);
         }
 
         private View view;
@@ -39,6 +44,8 @@ namespace TravelAccounterWin {
                 Details = e.Details
             };
 
+            view.BindTravel(travel);
+
             paymentsEngine = new PaymentsEngine(travel);
             claimEngine = new ClaimEngine(travel);
         }
@@ -48,7 +55,8 @@ namespace TravelAccounterWin {
             paymentsEngine = new PaymentsEngine(travel);
             claimEngine = new ClaimEngine(travel);
 
-            view.RefreshAccounts(travel.Accounts);
+            view.BindTravel(travel);
+
             view.RefreshTransactions(travel.TransactionLines);
         }
         void view_OnSaveTravel(object sender, FileEventArgs e) {
