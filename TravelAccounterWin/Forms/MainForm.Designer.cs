@@ -45,7 +45,6 @@
             this.dataGridClaims = new System.Windows.Forms.DataGridView();
             this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claimBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripClaims = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCalculateClaims = new System.Windows.Forms.ToolStripButton();
@@ -72,7 +71,6 @@
             this.creditorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelAccounts = new System.Windows.Forms.Panel();
@@ -242,10 +240,9 @@
             // 
             this.panelClaims.Controls.Add(this.dataGridClaims);
             this.panelClaims.Controls.Add(this.toolStripClaims);
-            this.panelClaims.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelClaims.Location = new System.Drawing.Point(0, 0);
+            this.panelClaims.Location = new System.Drawing.Point(0, 84);
             this.panelClaims.Name = "panelClaims";
-            this.panelClaims.Size = new System.Drawing.Size(789, 408);
+            this.panelClaims.Size = new System.Drawing.Size(572, 324);
             this.panelClaims.TabIndex = 2;
             // 
             // dataGridClaims
@@ -258,8 +255,7 @@
             this.dataGridClaims.ColumnHeadersHeight = 30;
             this.dataGridClaims.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.creditorDataGridViewTextBoxColumn1,
-            this.debtorDataGridViewTextBoxColumn1,
-            this.amountDataGridViewTextBoxColumn1});
+            this.debtorDataGridViewTextBoxColumn1});
             this.dataGridClaims.DataSource = this.claimBindingSource;
             this.dataGridClaims.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridClaims.GridColor = System.Drawing.SystemColors.Control;
@@ -267,7 +263,7 @@
             this.dataGridClaims.Name = "dataGridClaims";
             this.dataGridClaims.RowHeadersVisible = false;
             this.dataGridClaims.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridClaims.Size = new System.Drawing.Size(789, 383);
+            this.dataGridClaims.Size = new System.Drawing.Size(572, 299);
             this.dataGridClaims.TabIndex = 1;
             // 
             // creditorDataGridViewTextBoxColumn1
@@ -284,13 +280,6 @@
             this.debtorDataGridViewTextBoxColumn1.Name = "debtorDataGridViewTextBoxColumn1";
             this.debtorDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // amountDataGridViewTextBoxColumn1
-            // 
-            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
-            this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // claimBindingSource
             // 
             this.claimBindingSource.AllowNew = false;
@@ -303,7 +292,7 @@
             this.toolStripButtonPayClaims});
             this.toolStripClaims.Location = new System.Drawing.Point(0, 0);
             this.toolStripClaims.Name = "toolStripClaims";
-            this.toolStripClaims.Size = new System.Drawing.Size(789, 25);
+            this.toolStripClaims.Size = new System.Drawing.Size(572, 25);
             this.toolStripClaims.TabIndex = 0;
             this.toolStripClaims.Text = "toolStrip1";
             // 
@@ -329,13 +318,12 @@
             this.panelTransactions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelTransactions.Controls.Add(this.panelNewTransaction, 0, 0);
             this.panelTransactions.Controls.Add(this.dataGridTransactions, 0, 1);
-            this.panelTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTransactions.Location = new System.Drawing.Point(0, 0);
+            this.panelTransactions.Location = new System.Drawing.Point(0, 62);
             this.panelTransactions.Name = "panelTransactions";
             this.panelTransactions.RowCount = 2;
             this.panelTransactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.panelTransactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.panelTransactions.Size = new System.Drawing.Size(789, 408);
+            this.panelTransactions.Size = new System.Drawing.Size(767, 346);
             this.panelTransactions.TabIndex = 1;
             // 
             // panelNewTransaction
@@ -359,7 +347,7 @@
             this.panelNewTransaction.Location = new System.Drawing.Point(1, 1);
             this.panelNewTransaction.Margin = new System.Windows.Forms.Padding(1);
             this.panelNewTransaction.Name = "panelNewTransaction";
-            this.panelNewTransaction.Size = new System.Drawing.Size(787, 128);
+            this.panelNewTransaction.Size = new System.Drawing.Size(765, 128);
             this.panelNewTransaction.TabIndex = 0;
             // 
             // comboInternal
@@ -397,7 +385,7 @@
             this.checkedListForWhom.FormattingEnabled = true;
             this.checkedListForWhom.Location = new System.Drawing.Point(420, 28);
             this.checkedListForWhom.Name = "checkedListForWhom";
-            this.checkedListForWhom.Size = new System.Drawing.Size(169, 94);
+            this.checkedListForWhom.Size = new System.Drawing.Size(169, 89);
             this.checkedListForWhom.TabIndex = 10;
             // 
             // buttonAddTransaction
@@ -413,7 +401,7 @@
             // 
             this.textAmount.Location = new System.Drawing.Point(250, 34);
             this.textAmount.Name = "textAmount";
-            this.textAmount.Size = new System.Drawing.Size(140, 20);
+            this.textAmount.Size = new System.Drawing.Size(140, 22);
             this.textAmount.TabIndex = 5;
             this.textAmount.TextChanged += new System.EventHandler(this.textAmount_TextChanged);
             // 
@@ -422,7 +410,7 @@
             this.labelAmount.AutoSize = true;
             this.labelAmount.Location = new System.Drawing.Point(181, 37);
             this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(43, 13);
+            this.labelAmount.Size = new System.Drawing.Size(48, 13);
             this.labelAmount.TabIndex = 4;
             this.labelAmount.Text = "Amount";
             // 
@@ -431,7 +419,7 @@
             this.radioInternal.AutoSize = true;
             this.radioInternal.Location = new System.Drawing.Point(184, 106);
             this.radioInternal.Name = "radioInternal";
-            this.radioInternal.Size = new System.Drawing.Size(64, 17);
+            this.radioInternal.Size = new System.Drawing.Size(66, 17);
             this.radioInternal.TabIndex = 8;
             this.radioInternal.Text = "Transfer";
             this.radioInternal.UseVisualStyleBackColor = true;
@@ -442,7 +430,7 @@
             this.labelForWhom.AutoSize = true;
             this.labelForWhom.Location = new System.Drawing.Point(417, 10);
             this.labelForWhom.Name = "labelForWhom";
-            this.labelForWhom.Size = new System.Drawing.Size(72, 13);
+            this.labelForWhom.Size = new System.Drawing.Size(77, 13);
             this.labelForWhom.TabIndex = 9;
             this.labelForWhom.Text = "Who is payed";
             // 
@@ -451,7 +439,7 @@
             this.radioCollectiveExpense.AutoSize = true;
             this.radioCollectiveExpense.Location = new System.Drawing.Point(184, 83);
             this.radioCollectiveExpense.Name = "radioCollectiveExpense";
-            this.radioCollectiveExpense.Size = new System.Drawing.Size(114, 17);
+            this.radioCollectiveExpense.Size = new System.Drawing.Size(119, 17);
             this.radioCollectiveExpense.TabIndex = 7;
             this.radioCollectiveExpense.Text = "Collective expense";
             this.radioCollectiveExpense.UseVisualStyleBackColor = true;
@@ -462,7 +450,7 @@
             this.radioSingleExpense.AutoSize = true;
             this.radioSingleExpense.Location = new System.Drawing.Point(184, 60);
             this.radioSingleExpense.Name = "radioSingleExpense";
-            this.radioSingleExpense.Size = new System.Drawing.Size(97, 17);
+            this.radioSingleExpense.Size = new System.Drawing.Size(102, 17);
             this.radioSingleExpense.TabIndex = 6;
             this.radioSingleExpense.Text = "Single expense";
             this.radioSingleExpense.UseVisualStyleBackColor = true;
@@ -488,7 +476,7 @@
             this.labelCreditor.AutoSize = true;
             this.labelCreditor.Location = new System.Drawing.Point(181, 10);
             this.labelCreditor.Name = "labelCreditor";
-            this.labelCreditor.Size = new System.Drawing.Size(55, 13);
+            this.labelCreditor.Size = new System.Drawing.Size(58, 13);
             this.labelCreditor.TabIndex = 2;
             this.labelCreditor.Text = "Who pays";
             // 
@@ -505,7 +493,7 @@
             this.labelTransactionDetails.AutoSize = true;
             this.labelTransactionDetails.Location = new System.Drawing.Point(10, 10);
             this.labelTransactionDetails.Name = "labelTransactionDetails";
-            this.labelTransactionDetails.Size = new System.Drawing.Size(39, 13);
+            this.labelTransactionDetails.Size = new System.Drawing.Size(42, 13);
             this.labelTransactionDetails.TabIndex = 0;
             this.labelTransactionDetails.Text = "Details";
             // 
@@ -520,7 +508,6 @@
             this.creditorDataGridViewTextBoxColumn,
             this.debtorDataGridViewTextBoxColumn,
             this.transactionDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn});
             this.dataGridTransactions.DataSource = this.transactionLineBindingSource;
             this.dataGridTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -530,7 +517,7 @@
             this.dataGridTransactions.RowHeadersVisible = false;
             this.dataGridTransactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTransactions.Size = new System.Drawing.Size(783, 272);
+            this.dataGridTransactions.Size = new System.Drawing.Size(761, 210);
             this.dataGridTransactions.TabIndex = 1;
             // 
             // creditorDataGridViewTextBoxColumn
@@ -555,13 +542,6 @@
             this.transactionDataGridViewTextBoxColumn.Name = "transactionDataGridViewTextBoxColumn";
             this.transactionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
@@ -577,11 +557,10 @@
             // 
             this.panelAccounts.Controls.Add(this.dataGridAccounts);
             this.panelAccounts.Controls.Add(this.toolStripAccounts);
-            this.panelAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAccounts.Location = new System.Drawing.Point(0, 0);
+            this.panelAccounts.Location = new System.Drawing.Point(0, 20);
             this.panelAccounts.Margin = new System.Windows.Forms.Padding(1);
             this.panelAccounts.Name = "panelAccounts";
-            this.panelAccounts.Size = new System.Drawing.Size(789, 408);
+            this.panelAccounts.Size = new System.Drawing.Size(749, 388);
             this.panelAccounts.TabIndex = 0;
             // 
             // dataGridAccounts
@@ -598,7 +577,7 @@
             this.dataGridAccounts.Location = new System.Drawing.Point(0, 25);
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.RowHeadersVisible = false;
-            this.dataGridAccounts.Size = new System.Drawing.Size(789, 383);
+            this.dataGridAccounts.Size = new System.Drawing.Size(749, 363);
             this.dataGridAccounts.TabIndex = 1;
             // 
             // nameDataGridViewTextBoxColumn
@@ -644,7 +623,7 @@
             this.toolStripButtonDeleteAccount});
             this.toolStripAccounts.Location = new System.Drawing.Point(0, 0);
             this.toolStripAccounts.Name = "toolStripAccounts";
-            this.toolStripAccounts.Size = new System.Drawing.Size(789, 25);
+            this.toolStripAccounts.Size = new System.Drawing.Size(749, 25);
             this.toolStripAccounts.TabIndex = 0;
             this.toolStripAccounts.Text = "Accounts";
             // 
@@ -677,6 +656,7 @@
             this.ClientSize = new System.Drawing.Size(791, 480);
             this.Controls.Add(this.panelMainPanel);
             this.Controls.Add(this.panelTableStart);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MinimumSize = new System.Drawing.Size(807, 519);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
