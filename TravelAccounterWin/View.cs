@@ -148,6 +148,7 @@ namespace TravelAccounterWin {
                     Amount = decimal.Parse(this.MainForm.transactionsControl.textAmount.Text),
                     Currency = (Currency)this.MainForm.transactionsControl.comboCurrency.SelectedItem,
                     ExchangeRate = decimal.Parse(this.MainForm.transactionsControl.textExchangeRate.Text),
+                    Date = this.MainForm.transactionsControl.datePickerTransactionDate.Value,
                     Creditor = (Account)this.MainForm.transactionsControl.comboCreditor.SelectedItem
                 };
 

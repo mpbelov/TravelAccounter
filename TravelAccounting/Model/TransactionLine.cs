@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace TravelAccounting.Model {
     public class TransactionLine {
         public TransactionLine(Transaction transaction) {
-            Date = DateTime.UtcNow;
             Transaction = transaction;
         }
 
@@ -19,7 +18,7 @@ namespace TravelAccounting.Model {
         public virtual decimal BaseAmount { get { return ActualAmount * Currency.ExchangeRate; } }
         public virtual decimal ActualAmount { get; set; }
 
-        public virtual DateTime Date { get; set; }
+        public virtual DateTime Date { get { return Transaction.Date; } }
 
         public override string ToString() {
             return string.Format("Creditor {0}, Debtor {1}, Amount {2}",

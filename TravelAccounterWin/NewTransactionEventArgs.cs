@@ -14,6 +14,7 @@ namespace TravelAccounterWin
         public Currency Currency { get; set; }
         public decimal ExchangeRate { get; set; }
         public Account Creditor { get; set; }
+        public DateTime Date { get; set; }
 
         public TransactionType Type { get; set; }
 

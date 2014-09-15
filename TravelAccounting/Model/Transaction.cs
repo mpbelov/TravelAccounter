@@ -8,7 +8,7 @@ namespace TravelAccounting.Model {
     public class Transaction {
         public Transaction(Travel travel) {
             this.Travel = travel;
-            Date = DateTime.UtcNow;
+            Date = DateTime.Now.Date;
             Currency = new Currency(travel.BaseCurrency);
         }
 

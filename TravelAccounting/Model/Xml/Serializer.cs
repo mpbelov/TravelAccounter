@@ -38,8 +38,7 @@ namespace TravelAccounting.Model.Xml {
                     new XElement("Creditor", XmlConvert.ToString(accountSet[t.Creditor])),
                     new XElement("Debtor", XmlConvert.ToString(t.Debtor == null ? Guid.Empty : accountSet[t.Debtor])),
                     new XElement("Transaction", XmlConvert.ToString(transactionSet[t.Transaction])),
-                    new XElement("ActualAmount", XmlConvert.ToString(t.ActualAmount)),
-                    new XElement("Date", XmlConvert.ToString(t.Date, XmlDateTimeSerializationMode.Utc))
+                    new XElement("ActualAmount", XmlConvert.ToString(t.ActualAmount))
                 )
             ).ToArray();
 
@@ -109,8 +108,7 @@ namespace TravelAccounting.Model.Xml {
                     new TransactionLine(trans) {
                         ActualAmount = XmlConvert.ToDecimal(x.Element("ActualAmount").Value),
                         Creditor = creditor,
-                        Debtor = debtor,
-                        Date = XmlConvert.ToDateTime(x.Element("Date").Value, XmlDateTimeSerializationMode.Utc)
+                        Debtor = debtor
                     }
                 );
             }

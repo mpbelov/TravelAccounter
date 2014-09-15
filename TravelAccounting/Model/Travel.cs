@@ -36,13 +36,18 @@ namespace TravelAccounting.Model {
             return CreateTransaction(details, this.BaseCurrency);
         }
         public virtual Transaction CreateTransaction(string details, Currency currency) {
+            return CreateTransaction(details, this.BaseCurrency, DateTime.Now.Date);
+        }
+        public virtual Transaction CreateTransaction(string details, Currency currency, DateTime date) {
             Transaction t = new Transaction(this) {
                 Details = details,
-                Currency = new Currency(currency)
+                Currency = new Currency(currency),
+                Date = date
             };
             Transactions.Add(t);
             return t;
         }
+
 
         public virtual Currency CreateCurrency(string name, string shortName) {
             var c = new Currency(name, shortName);

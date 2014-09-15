@@ -71,7 +71,7 @@ namespace TravelAccounterWin {
         }
 
         void view_OnCreateNewTransaction(object sender, NewTransactionEventArgs e) {
-            var t = travel.CreateTransaction(e.Details, e.Currency);
+            var t = travel.CreateTransaction(e.Details, e.Currency, e.Date);
             t.Currency.ExchangeRate = e.ExchangeRate;
             switch (e.Type) {
                 case TransactionType.SingleExpense:
