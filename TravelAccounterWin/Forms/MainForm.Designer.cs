@@ -43,22 +43,25 @@
             this.panelWorkArea = new System.Windows.Forms.Panel();
             this.panelClaims = new System.Windows.Forms.Panel();
             this.dataGridClaims = new System.Windows.Forms.DataGridView();
-            this.toolStripClaims = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonCalculateClaims = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPayClaims = new System.Windows.Forms.ToolStripButton();
             this.creditorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.debtorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.claimBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripClaims = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonCalculateClaims = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPayClaims = new System.Windows.Forms.ToolStripButton();
             this.transactionsControl = new TravelAccounterWin.Forms.Controls.TransactionsControl();
             this.travelControl = new TravelAccounterWin.Forms.Controls.TravelControl();
+            this.Currency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaseAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTableStart.SuspendLayout();
             this.panelMainPanel.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelWorkArea.SuspendLayout();
             this.panelClaims.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).BeginInit();
-            this.toolStripClaims.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).BeginInit();
+            this.toolStripClaims.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTableStart
@@ -99,11 +102,13 @@
             // 
             // panelMainPanel
             // 
+            this.panelMainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMainPanel.ColumnCount = 1;
             this.panelMainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.panelMainPanel.Controls.Add(this.panelTop, 0, 0);
             this.panelMainPanel.Controls.Add(this.panelWorkArea, 0, 1);
-            this.panelMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainPanel.Location = new System.Drawing.Point(0, 0);
             this.panelMainPanel.Margin = new System.Windows.Forms.Padding(1);
             this.panelMainPanel.Name = "panelMainPanel";
@@ -183,10 +188,12 @@
             // 
             // panelWorkArea
             // 
-            this.panelWorkArea.Controls.Add(this.transactionsControl);
+            this.panelWorkArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelWorkArea.Controls.Add(this.panelClaims);
+            this.panelWorkArea.Controls.Add(this.transactionsControl);
             this.panelWorkArea.Controls.Add(this.travelControl);
-            this.panelWorkArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWorkArea.Location = new System.Drawing.Point(1, 71);
             this.panelWorkArea.Margin = new System.Windows.Forms.Padding(1);
             this.panelWorkArea.Name = "panelWorkArea";
@@ -195,11 +202,14 @@
             // 
             // panelClaims
             // 
+            this.panelClaims.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelClaims.Controls.Add(this.dataGridClaims);
             this.panelClaims.Controls.Add(this.toolStripClaims);
-            this.panelClaims.Location = new System.Drawing.Point(0, 84);
+            this.panelClaims.Location = new System.Drawing.Point(4, 3);
             this.panelClaims.Name = "panelClaims";
-            this.panelClaims.Size = new System.Drawing.Size(572, 324);
+            this.panelClaims.Size = new System.Drawing.Size(1025, 609);
             this.panelClaims.TabIndex = 2;
             // 
             // dataGridClaims
@@ -212,7 +222,10 @@
             this.dataGridClaims.ColumnHeadersHeight = 30;
             this.dataGridClaims.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.creditorDataGridViewTextBoxColumn1,
-            this.debtorDataGridViewTextBoxColumn1});
+            this.debtorDataGridViewTextBoxColumn1,
+            this.Currency,
+            this.BaseAmount,
+            this.ActualAmount});
             this.dataGridClaims.DataSource = this.claimBindingSource;
             this.dataGridClaims.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridClaims.GridColor = System.Drawing.SystemColors.Control;
@@ -220,35 +233,8 @@
             this.dataGridClaims.Name = "dataGridClaims";
             this.dataGridClaims.RowHeadersVisible = false;
             this.dataGridClaims.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridClaims.Size = new System.Drawing.Size(572, 299);
+            this.dataGridClaims.Size = new System.Drawing.Size(1025, 584);
             this.dataGridClaims.TabIndex = 1;
-            // 
-            // toolStripClaims
-            // 
-            this.toolStripClaims.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonCalculateClaims,
-            this.toolStripButtonPayClaims});
-            this.toolStripClaims.Location = new System.Drawing.Point(0, 0);
-            this.toolStripClaims.Name = "toolStripClaims";
-            this.toolStripClaims.Size = new System.Drawing.Size(572, 25);
-            this.toolStripClaims.TabIndex = 0;
-            this.toolStripClaims.Text = "toolStrip1";
-            // 
-            // toolStripButtonCalculateClaims
-            // 
-            this.toolStripButtonCalculateClaims.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCalculateClaims.Image")));
-            this.toolStripButtonCalculateClaims.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonCalculateClaims.Name = "toolStripButtonCalculateClaims";
-            this.toolStripButtonCalculateClaims.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButtonCalculateClaims.Text = "Calculate";
-            // 
-            // toolStripButtonPayClaims
-            // 
-            this.toolStripButtonPayClaims.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPayClaims.Image")));
-            this.toolStripButtonPayClaims.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPayClaims.Name = "toolStripButtonPayClaims";
-            this.toolStripButtonPayClaims.Size = new System.Drawing.Size(83, 22);
-            this.toolStripButtonPayClaims.Text = "Pay claims";
             // 
             // creditorDataGridViewTextBoxColumn1
             // 
@@ -269,24 +255,78 @@
             this.claimBindingSource.AllowNew = false;
             this.claimBindingSource.DataSource = typeof(TravelAccounting.Model.Claim);
             // 
+            // toolStripClaims
+            // 
+            this.toolStripClaims.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonCalculateClaims,
+            this.toolStripButtonPayClaims});
+            this.toolStripClaims.Location = new System.Drawing.Point(0, 0);
+            this.toolStripClaims.Name = "toolStripClaims";
+            this.toolStripClaims.Size = new System.Drawing.Size(1025, 25);
+            this.toolStripClaims.TabIndex = 0;
+            this.toolStripClaims.Text = "toolStrip1";
+            // 
+            // toolStripButtonCalculateClaims
+            // 
+            this.toolStripButtonCalculateClaims.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCalculateClaims.Image")));
+            this.toolStripButtonCalculateClaims.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCalculateClaims.Name = "toolStripButtonCalculateClaims";
+            this.toolStripButtonCalculateClaims.Size = new System.Drawing.Size(76, 22);
+            this.toolStripButtonCalculateClaims.Text = "Calculate";
+            // 
+            // toolStripButtonPayClaims
+            // 
+            this.toolStripButtonPayClaims.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPayClaims.Image")));
+            this.toolStripButtonPayClaims.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPayClaims.Name = "toolStripButtonPayClaims";
+            this.toolStripButtonPayClaims.Size = new System.Drawing.Size(83, 22);
+            this.toolStripButtonPayClaims.Text = "Pay claims";
+            // 
             // transactionsControl
             // 
+            this.transactionsControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.transactionsControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.transactionsControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.transactionsControl.Location = new System.Drawing.Point(97, 3);
+            this.transactionsControl.Location = new System.Drawing.Point(4, 3);
             this.transactionsControl.Name = "transactionsControl";
-            this.transactionsControl.Size = new System.Drawing.Size(914, 549);
+            this.transactionsControl.Size = new System.Drawing.Size(1025, 609);
             this.transactionsControl.TabIndex = 4;
             // 
             // travelControl
             // 
+            this.travelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.travelControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.travelControl.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.travelControl.Location = new System.Drawing.Point(4, 3);
             this.travelControl.MinimumSize = new System.Drawing.Size(933, 567);
             this.travelControl.Name = "travelControl";
-            this.travelControl.Size = new System.Drawing.Size(933, 567);
+            this.travelControl.Size = new System.Drawing.Size(1025, 609);
             this.travelControl.TabIndex = 3;
+            // 
+            // Currency
+            // 
+            this.Currency.DataPropertyName = "Currency";
+            this.Currency.HeaderText = "Currency";
+            this.Currency.Name = "Currency";
+            this.Currency.ReadOnly = true;
+            // 
+            // BaseAmount
+            // 
+            this.BaseAmount.DataPropertyName = "BaseAmount";
+            this.BaseAmount.HeaderText = "BaseAmount";
+            this.BaseAmount.Name = "BaseAmount";
+            this.BaseAmount.ReadOnly = true;
+            // 
+            // ActualAmount
+            // 
+            this.ActualAmount.DataPropertyName = "ActualAmount";
+            this.ActualAmount.HeaderText = "ActualAmount";
+            this.ActualAmount.Name = "ActualAmount";
+            this.ActualAmount.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -307,9 +347,9 @@
             this.panelClaims.ResumeLayout(false);
             this.panelClaims.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClaims)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).EndInit();
             this.toolStripClaims.ResumeLayout(false);
             this.toolStripClaims.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.claimBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,6 +379,9 @@
         internal System.Windows.Forms.Button buttonSaveTravel;
         internal Controls.TravelControl travelControl;
         internal Controls.TransactionsControl transactionsControl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Currency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BaseAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActualAmount;
 
     }
 }

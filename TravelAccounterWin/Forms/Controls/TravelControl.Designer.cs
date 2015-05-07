@@ -24,13 +24,18 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablePanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelCurrencies = new System.Windows.Forms.Panel();
+            this.dataGridCcurrencies = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exchangeRateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.panelAccounts = new System.Windows.Forms.Panel();
             this.dataGridAccounts = new System.Windows.Forms.DataGridView();
@@ -52,21 +57,16 @@
             this.labelTravelDetails = new System.Windows.Forms.Label();
             this.textTravelName = new System.Windows.Forms.TextBox();
             this.labelTravelName = new System.Windows.Forms.Label();
-            this.dataGridCcurrencies = new System.Windows.Forms.DataGridView();
-            this.currencyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shortNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.exchangeRateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablePanelMain.SuspendLayout();
             this.panelCurrencies.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCcurrencies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currencyBindingSource)).BeginInit();
             this.panelAccounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.panelDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baseCurrencyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCcurrencies)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.currencyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tablePanelMain
@@ -96,6 +96,57 @@
             this.panelCurrencies.Name = "panelCurrencies";
             this.panelCurrencies.Size = new System.Drawing.Size(927, 214);
             this.panelCurrencies.TabIndex = 4;
+            // 
+            // dataGridCcurrencies
+            // 
+            this.dataGridCcurrencies.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridCcurrencies.AutoGenerateColumns = false;
+            this.dataGridCcurrencies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCcurrencies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn1,
+            this.shortNameDataGridViewTextBoxColumn,
+            this.exchangeRateDataGridViewTextBoxColumn});
+            this.dataGridCcurrencies.DataSource = this.currencyBindingSource;
+            this.dataGridCcurrencies.Location = new System.Drawing.Point(23, 30);
+            this.dataGridCcurrencies.Name = "dataGridCcurrencies";
+            this.dataGridCcurrencies.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridCcurrencies.Size = new System.Drawing.Size(884, 172);
+            this.dataGridCcurrencies.TabIndex = 1;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 100;
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // shortNameDataGridViewTextBoxColumn
+            // 
+            this.shortNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shortNameDataGridViewTextBoxColumn.DataPropertyName = "ShortName";
+            this.shortNameDataGridViewTextBoxColumn.HeaderText = "Short Name";
+            this.shortNameDataGridViewTextBoxColumn.MinimumWidth = 100;
+            this.shortNameDataGridViewTextBoxColumn.Name = "shortNameDataGridViewTextBoxColumn";
+            // 
+            // exchangeRateDataGridViewTextBoxColumn
+            // 
+            this.exchangeRateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.exchangeRateDataGridViewTextBoxColumn.DataPropertyName = "ExchangeRate";
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.exchangeRateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.exchangeRateDataGridViewTextBoxColumn.HeaderText = "Exchange Rate";
+            this.exchangeRateDataGridViewTextBoxColumn.MinimumWidth = 120;
+            this.exchangeRateDataGridViewTextBoxColumn.Name = "exchangeRateDataGridViewTextBoxColumn";
+            this.exchangeRateDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // currencyBindingSource
+            // 
+            this.currencyBindingSource.AllowNew = true;
+            this.currencyBindingSource.DataSource = typeof(TravelAccounting.Model.Currency);
             // 
             // label1
             // 
@@ -134,7 +185,6 @@
             this.expenseDataGridViewTextBoxColumn});
             this.dataGridAccounts.DataSource = this.accountBindingSource;
             this.dataGridAccounts.Location = new System.Drawing.Point(23, 32);
-            this.dataGridAccounts.MultiSelect = false;
             this.dataGridAccounts.Name = "dataGridAccounts";
             this.dataGridAccounts.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridAccounts.Size = new System.Drawing.Size(884, 181);
@@ -303,57 +353,6 @@
             this.labelTravelName.TabIndex = 1;
             this.labelTravelName.Text = "Travel name";
             // 
-            // dataGridCcurrencies
-            // 
-            this.dataGridCcurrencies.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridCcurrencies.AutoGenerateColumns = false;
-            this.dataGridCcurrencies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCcurrencies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn1,
-            this.shortNameDataGridViewTextBoxColumn,
-            this.exchangeRateDataGridViewTextBoxColumn});
-            this.dataGridCcurrencies.DataSource = this.currencyBindingSource;
-            this.dataGridCcurrencies.Location = new System.Drawing.Point(23, 30);
-            this.dataGridCcurrencies.Name = "dataGridCcurrencies";
-            this.dataGridCcurrencies.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridCcurrencies.Size = new System.Drawing.Size(884, 172);
-            this.dataGridCcurrencies.TabIndex = 1;
-            // 
-            // currencyBindingSource
-            // 
-            this.currencyBindingSource.AllowNew = true;
-            this.currencyBindingSource.DataSource = typeof(TravelAccounting.Model.Currency);
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 100;
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            // 
-            // shortNameDataGridViewTextBoxColumn
-            // 
-            this.shortNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.shortNameDataGridViewTextBoxColumn.DataPropertyName = "ShortName";
-            this.shortNameDataGridViewTextBoxColumn.HeaderText = "Short Name";
-            this.shortNameDataGridViewTextBoxColumn.MinimumWidth = 100;
-            this.shortNameDataGridViewTextBoxColumn.Name = "shortNameDataGridViewTextBoxColumn";
-            // 
-            // exchangeRateDataGridViewTextBoxColumn
-            // 
-            this.exchangeRateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.exchangeRateDataGridViewTextBoxColumn.DataPropertyName = "ExchangeRate";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.exchangeRateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.exchangeRateDataGridViewTextBoxColumn.HeaderText = "Exchange Rate";
-            this.exchangeRateDataGridViewTextBoxColumn.MinimumWidth = 120;
-            this.exchangeRateDataGridViewTextBoxColumn.Name = "exchangeRateDataGridViewTextBoxColumn";
-            this.exchangeRateDataGridViewTextBoxColumn.Width = 120;
-            // 
             // TravelControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -366,6 +365,8 @@
             this.tablePanelMain.ResumeLayout(false);
             this.panelCurrencies.ResumeLayout(false);
             this.panelCurrencies.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCcurrencies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currencyBindingSource)).EndInit();
             this.panelAccounts.ResumeLayout(false);
             this.panelAccounts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccounts)).EndInit();
@@ -374,8 +375,6 @@
             this.panelDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baseCurrencyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.travelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCcurrencies)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.currencyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
